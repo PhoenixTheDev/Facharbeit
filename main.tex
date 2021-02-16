@@ -1,0 +1,39 @@
+\documentclass[
+    fontsize=12pt,
+    paper=a4,
+    abstract=false,
+    numbers=noenddot,
+    listof=totoc,
+    bibliography=totoc,
+    %twoside,
+    %open=right,
+    %cleardoublepage=plain,
+    parskip=half+
+]{scrreprt}
+
+\input{misc/preamble}
+
+\begin{document}
+
+    \input{chapters/chapter_0}
+    \input{chapters/chapter_1}
+    \input{chapters/chapter_2}
+    \input{chapters/chapter_3}
+    \input{chapters/chapter_4}
+    \input{chapters/chapter_5}
+    
+    \appendix
+    \pagestyle{scrplain}
+    \listoffigures
+    \listoftables
+    %\clearpage \phantomsection 
+    %\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
+    %\listofalgorithmes
+    \renewcommand*{\lstlistlistingname}{Listingsverzeichnis}
+    \lstlistoflistings
+    \flushbottom
+    \bibliographystyle{bababbrv-fl}
+    \bibliography{literature/literature}
+    \KOMAoptions{open=right} % Plaziert Kapitel wieder nur auf rechten Seiten
+    \input{chapters/chapter_appendix}
+\end{document}
