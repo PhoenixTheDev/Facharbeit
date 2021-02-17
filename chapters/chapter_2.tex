@@ -1,18 +1,126 @@
+\newacronym{ide}{IDE}{Intelligent Development Environment}
+
 \chapter{Grundlagen}
 
-Java ist eine objektorientierte, kompilierte Programmiersprache, welche plattformunabhängig ist [4]. Sie wurde von der Programmiersprache C inspiriert, weshalb Java eine ähnliche Syntax hat [4]. Java erschien 1995 und wird jeher für viele unterschiedliche Dinge genutzt. Auf der Internetseite von Oracle wird geschrieben: „Mit Java können Sie Online-Spiele spielen, mit Menschen auf der ganzen Welt chatten, Ihre Hypothekenzinsen berechnen und Bilder in 3D betrachten, um nur einige Beispiele zu nennen“[5]. Dazu ist Java auf 13 Milliarden Geräten vertreten, und über 20 Jahre unter den drei meistgenutzten Programmiersprachen der Welt [7]. [2] \par
-Python wurde in den 90er Jahren von Guido van Rossum entwickelt. Er war an der Entwicklung von ABC beteiligt und hat mit der positiven und negativen Kritik Python entwickelt. Ursprünglich war sie als Skriptsprache für Amoeba gedacht. Der Name von für die Programmiersprache kommt von den britischen Komikern Monty Python. Python ist, wie Java, ebenfalls eine objektorientierte, plattformunabhängige, interpretierte High-Level Programmiersprache. Wie ABC soll Python einfach zu verstehen und zu lesen sein. Bei Python wurde stark darauf geachtet, dass die Programmiersprache mächtig ist, was bei ABC nicht der Fall war und oft kritisiert wurde. Mit kleinen und übersichtlichen Programmen ist man in der Lage komplexe Aufgaben zu lösen. Python kann für die Web- und App-Entwicklung genutzt werden. Durch die Unmengen an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, Maschine Learning und Deep Learning besonders beliebt [25]. Das liegt auch daran, dass Python Bibliotheken so einfach wie möglich bereitstellt. Die Standartbibliothek ist sehr umfangreich. Beispielsweise das Summieren jedes Elementes eines Arrays wird in Python mit einer einfachen Methode gemacht, während bei Java auf komplexere Wege zurückgegriffen werden muss. [8]
+Java ist eine objektorientierte, kompilierte Programmiersprache, welche plattformunabhängig ist. Sie wurde von der Programmiersprache C inspiriert, weshalb Java eine ähnliche Syntax hat. Java erschien 1995 und wird jeher für viele unterschiedliche Dinge genutzt. Auf der Internetseite von Oracle wird geschrieben: „Mit Java können Sie Online-Spiele spielen, mit Menschen auf der ganzen Welt chatten, Ihre Hypothekenzinsen berechnen und Bilder in 3D betrachten, um nur einige Beispiele zu nennen“\cite{Oracle:Java}. Dazu ist Java auf 13 Milliarden Geräten vertreten, und über 20 Jahre unter den drei meistgenutzten Programmiersprachen der Welt \cite{Github:PYPL}. \cite{Louis:2010}\cite{Oracle:Twitter} \par
+Python wurde in den 90er Jahren von Guido van Rossum entwickelt. Er war an der Entwicklung von ABC beteiligt und hat mit der positiven und negativen Kritik Python entwickelt. Ursprünglich war sie als Skriptsprache für Amoeba gedacht. Der Name von für die Programmiersprache kommt von den britischen Komikern \textit{Monty Python}. Python ist, wie Java, ebenfalls eine objektorientierte, plattformunabhängige, interpretierte High-Level Programmiersprache. Wie ABC soll Python einfach zu verstehen und zu lesen sein. Bei Python wurde stark darauf geachtet, dass die Programmiersprache mächtig ist, was bei ABC nicht der Fall war und oft kritisiert wurde. Mit kleinen und übersichtlichen Programmen ist man in der Lage komplexe Aufgaben zu lösen. Python kann für die Web- und App-Entwicklung genutzt werden. Durch die Unmengen an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, Maschine Learning und Deep Learning besonders beliebt \cite{PythonCS}. Das liegt auch daran, dass Python Bibliotheken so einfach wie möglich bereitstellt. Die Standartbibliothek ist sehr umfangreich. Beispielsweise das Summieren jedes Elementes eines Arrays wird in Python mit einer einfachen Methode gemacht, während bei Java auf komplexere Wege zurückgegriffen werden muss. \cite{Python3:Buch}
 
 \section{Grundbausteine und Funktionen}
 
-In Listing \ref{lst:java:if} sehen Sie if.
+Für den ausführlichen Vergleich der beiden Programmiersprachen, werden Syntax, Codelänge, Arbeitsspeicherauslastung und Laufzeit verglichen und daraus ein Resultat gezogen.
+In Java wird der Einstiegspunkt durch das \textit{\acrlong{ide}} (IDE) BlueJ definiert. Der Startpunkt für das Programm wird von IDE zu IDE unterschiedlich definiert. Die IDE \textit{pyCharm}, welche die fünft meistgenutzte IDE der Welt ist, führt entweder eine \textit{main.py} Datei aus oder es wird manuell ein Einstiegspunkt definiert \cite{Github:IDE}. Das geschieht wie in \ref{lst:pystart} gezeigt.
 
-\begin{lstlisting}[language=java,caption={If-Verzweigung in Java},captionpos=b,label={lst:java:if}]
-if (hoehe + wert < maxHoehe && hoehe + wert > minHoehe)
+\begin{lstlisting}[language=python,caption={Einstiegspunkt Python},captionpos=b,label={lst:pystart}]
+if __name__ == '__main__':
+\end{lstlisting}
+
+Der Code wird eingerückt geschrieben. Der Einstiegspunkt ist nicht in einer Klasse enthalten. Wird das Programm bei einem manuellen Einstiegspunkt gestartet, wird alles Eingerückte ausgeführt, bis es unterbrochen wird. Wenn die \textit{main.py} durchlaufen wird, läuft das Dokument von oben bis unten durch. Klassen und Methoden werden beim Durchlaufen ignoriert. Dadurch wird keine Klasse gebraucht und kleine Programme können schnell programmiert werden. Eine Klasse ist ein Entwurf mit Eigenschaften und Funktionen \cite{gfg}. In Java ist eine Klasse zum Ausführen des Programms essenziell und deswegen werden als erstes die Unterschiede von Klassen gegenübergestellt.
+
+\begin{lstlisting}[language=java,caption={Klasse in Java},captionpos=b,label={lst:java:class}]
+public class Tisch
 {
-    hoehe = hoehe + wert;
+    public Tisch()
+    {
+        System.out.println("Tisch");
+    }
 }
 \end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={Klasse in Python},captionpos=b,label={lst:python:class}]
+class Tisch:
+    def __init__(self):
+        print('Tisch')
+\end{lstlisting}
+
+\ref{lst:java:class} und \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer public. In der Klasse ist ein Konstruktor enthalten. Dieser wird unter den gleichen Bedingungen aufgerufen wie bei Java. Der Konstruktor besteht jeweils aus einem Kopf und einen Rumpf. Der Kopf in Java besteht aus dem Schlüsselbegriff \textit{public} oder \textit{private}, dem Namen der Klasse und Parameterklammern. Anders ist das in Python, wo der Konstruktor aus den Schlüsselbegriffen \textit{def} und \textit{\_\_init\_\_}, sowie den Parameterklammer und einem Doppelpunkt besteht. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Der Code endet in Java mit einem Semikolon und in Python nicht. Besonders durch die fehlenden geschweiften Klammern, sondern dem Definieren der Rümpfe durch das Einrücken des Codes ist Python um vier Zeilen kürzer. Sofern man sich an die Formatierungsregeln hält. Aber weniger Zeichen hat Python auch. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. \par
+
+Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Anzahl der Beine und Dicke des Tisches. Diese Werte werden in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Eine Variable hält entweder einen Wert (primitiv) oder eine Referenz auf den Wert (Referenz). Folglich ist eine Variable ein Speicherplatz. Der Wert im Speicher kann immer wieder geändert werden. In Java müssen die Werte immer mit dem Typ übereinstimmen. Java hat vier primitive Datentypen. \textit{Int, double, char und boolean} müssen immer einen Wert haben. \textit{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Python hat keine Datentypen. Eine Variable kann immer jede Art von Wert speichern. Wie in jeder Sprache haben auch Programmiersprachen eine Art Rechtschreibung. Variablen werden nach bestimmten Richtlinien benannt, ein leichteres Lesen des Codes ermöglichen. Nach diesen \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Auch die \textit{naming convention} ist in Python anders. Bei der Benennung von Variablen wird sich an \textit{snake\_case} gehalten \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
+
+\begin{lstlisting}[language=java,caption={Klasse in Java},captionpos=b,label={lst:java:variablen}]
+public class Tisch
+{
+    int laenge;
+    int breite = 50;
+    int hoehe = 80;
+    
+    public Tisch()
+    {
+        laenge = 100;
+        System.out.println("Tisch");
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={Klasse in Python},captionpos=b,label={lst:python:variablen}]
+class Tisch:
+    def __init__(self):
+        self.laenge = 100
+        self.breite = 50
+        self.hoehe = 80
+        print('Tisch')
+\end{lstlisting}
+
+Durch die Gegenüberstellung beider Versionen mit Variablen fallen einige Dinge auf. Die globalen Variablen werden im Konstruktor initialisiert und deklariert. Das \textit{self.} macht die Variablen global. Ohne das \textit{self.} sind die Variablen nur im Konstruktor nutzbar. Variablen die nur im Konstruktor oder in Methoden nutzbar sind werden auch temporäre Variablen genannt, da der Wert nur temporär ist und nach dem Konstruktor oder der Methode verworfen wird. Soll die Variable in anderen Codeteilen aufgerufen werden, muss in Java nur den Variablenname geschrieben werden, bei Python muss das \textit{self.} davor. \par
+Durch das Angeben eines Datentypens in Java, werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Die Unabhängigkeit von Datentypen in Python ist ein großer Vorteil gegenüber Java.\par
+Ein Sonderfall ist der Array oder auch die Liste. Während Java die beiden einzeln sieht, kombiniert Python die beiden. Ein Array ist eine Sammlung von Speichern für Werte mit einer konstanten Länge. Eine Liste ist eine Sammlung mit flexibler Länge, es können also Werte entfernt werden und hinzugefügt werden. Bei einem Array kann mit einem Index auf den Speicher zugegriffen werden. Eine Liste ist eine Verkettung von Werten und es kann immer nur auf das nächste Element zugegriffen werden. Wenn man auf das fünfte Element des Arrays zugreifen möchte geht das per genullten Index. Bei einer Liste wird mit dem ersten Element angefangen und es wird bis zum fünften Element auf den Nachbarn zugegriffen. Deshalb kann auch immer nur mit dem jetzigen Element in einer Liste gearbeitet werden. \cite{NRWListe}\cite{Louis:2010}\cite{Python3:Buch}
+
+\begin{lstlisting}[language=java,caption={Klasse in Python},captionpos=b,label={lst:java:array}]
+public class Tisch
+{
+    int breite;
+    int laenge = 100;
+  
+    String[] gegenstaende = new String[3];
+  
+    public Tisch()
+    {
+        breite = 50;
+    
+        gegenstaende[0] = "Buch";
+        gegenstaende[1] = "Stift";
+        gegenstaende[2] = "Pflanze";
+    }
+}
+\end{lstlisting}
+
+In Java wird auf die einzelnen Speicher per Index zugegriffen, wie \ref{lst:java:array} zeigt. Nachteil davon ist, dass nicht auf Index 3 zugegriffen werden kann, dieser existiert nämlich nicht. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklarierung ändern lässt. Alle drei Elemente sind auf dem Tisch und die Anzahl der Elemente lässt sich nicht mehr verändern.
+
+\begin{lstlisting}[language=java,caption={Klasse in Python},captionpos=b,label={lst:java:liste}]
+public class Tisch
+{
+    int breite;
+    int laenge = 100;
+  
+    String[] gegenstaende = new String[3];
+  
+    public Tisch()
+    {
+        breite = 50;
+    
+        gegenstaende.append("Buch");
+        gegenstaende.append("Stift");
+        gegenstaende.append("Pflanze");
+    }
+}
+\end{lstlisting}
+
+Die Liste ermöglicht ein Hinzufügen von Elementen per \textit{append} und ein Löschen per \textit{remove}. Entfernt werden kann aber immer nur das aktuelle Element. Es lässt sich nicht per Index auf die Elemente zugreifen.
+
+\begin{lstlisting}[language=python,caption={Klasse in Python},captionpos=b,label={lst:python:liste}]
+class Tisch:
+  def __init__(self):
+    self.laenge = 100
+    self.breite = 50
+    self.gegenstaende = []
+    self.gegenstaende.add('Buch')
+    self.gegenstaende[0] = 'Faus'
+    self.gegenstaende.add('Stift')
+    self.gegenstaende.add('Pflanze')
+    self.gegenstaende.remove('Pflanze')
+    self.gegenstaende.pop(1)
+\end{lstlisting}
+
+Python erlaubt es mit dem \textit{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \textit{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \textit{remove()}. \textit{remove()} arbeitet mit einem Wert anstelle eines Indexes, welcher gelöscht werden soll. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Das Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.
 
 \begin{lstlisting}[language=python,caption={If-Verzweigung in Python},captionpos=b,label={lst:python:if}]
 if hoehe + wert < max_hoehe and hoehe + wert > min_hoehe:
