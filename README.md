@@ -1,2 +1,2 @@
 # Facharbeit
-Informatik Facharbeit 2021 Q1 Nepomucenum
+In diesem Repository ist meine Facharbeit in dem Fach Informatik. Sie handelt von einem Vergleich der beiden Programmiersprachen Java und Python. Python wird dazu noch praktisch an hexagonalem Schach angewendet. Am ende der Facharbeit wird ein Resultat aus den erarbeiteten Informationen gezogen. In dem Resultat wird die Frage beantwortet, welche Programmiersprache in der Schule gelehrt werden sollte.
