@@ -32,11 +32,11 @@ class Tisch:
         print('Tisch')
 \end{lstlisting}
 
-\ref{lst:java:class} und \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer public. In der Klasse ist ein Konstruktor enthalten. Dieser wird unter den gleichen Bedingungen aufgerufen wie bei Java. Der Konstruktor besteht jeweils aus einem Kopf und einen Rumpf. Der Kopf in Java besteht aus dem Schlüsselbegriff \textit{public} oder \textit{private}, dem Namen der Klasse und Parameterklammern. Anders ist das in Python, wo der Konstruktor aus den Schlüsselbegriffen \textit{def} und \textit{\_\_init\_\_}, sowie den Parameterklammer und einem Doppelpunkt besteht. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Der Code endet in Java mit einem Semikolon und in Python nicht. Besonders durch die fehlenden geschweiften Klammern, sondern dem Definieren der Rümpfe durch das Einrücken des Codes ist Python um vier Zeilen kürzer. Sofern man sich an die Formatierungsregeln hält. Aber weniger Zeichen hat Python auch. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. \par
+Lisiting \ref{lst:java:class} und Listing \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer public. In der Klasse ist ein Konstruktor enthalten. Dieser wird unter den gleichen Bedingungen aufgerufen wie bei Java. Der Konstruktor besteht jeweils aus einem Kopf und einen Rumpf. Der Kopf in Java besteht aus dem Schlüsselbegriff \textit{public} oder \textit{private}, dem Namen der Klasse und Parameterklammern. Anders ist das in Python, wo der Konstruktor aus den Schlüsselbegriffen \textit{def} und \textit{\_\_init\_\_}, sowie den Parameterklammer und einem Doppelpunkt besteht. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Der Code endet in Java mit einem Semikolon und in Python nicht. Besonders durch die fehlenden geschweiften Klammern, sondern dem Definieren der Rümpfe durch das Einrücken des Codes ist Python um vier Zeilen kürzer. Sofern man sich an die Formatierungsregeln hält. Aber weniger Zeichen hat Python auch. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. \par
 
 Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Anzahl der Beine und Dicke des Tisches. Diese Werte werden in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Eine Variable hält entweder einen Wert (primitiv) oder eine Referenz auf den Wert (Referenz). Folglich ist eine Variable ein Speicherplatz. Der Wert im Speicher kann immer wieder geändert werden. In Java müssen die Werte immer mit dem Typ übereinstimmen. Java hat vier primitive Datentypen. \textit{Int, double, char und boolean} müssen immer einen Wert haben. \textit{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Python hat keine Datentypen. Eine Variable kann immer jede Art von Wert speichern. Wie in jeder Sprache haben auch Programmiersprachen eine Art Rechtschreibung. Variablen werden nach bestimmten Richtlinien benannt, ein leichteres Lesen des Codes ermöglichen. Nach diesen \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Auch die \textit{naming convention} ist in Python anders. Bei der Benennung von Variablen wird sich an \textit{snake\_case} gehalten \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
 
-\begin{lstlisting}[language=java,caption={Klasse in Java},captionpos=b,label={lst:java:variablen}]
+\begin{lstlisting}[language=java,caption={Variablen in Java},captionpos=b,label={lst:java:variablen}]
 public class Tisch
 {
     int laenge;
@@ -51,7 +51,7 @@ public class Tisch
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=python,caption={Klasse in Python},captionpos=b,label={lst:python:variablen}]
+\begin{lstlisting}[language=python,caption={Variablen in Python},captionpos=b,label={lst:python:variablen}]
 class Tisch:
     def __init__(self):
         self.laenge = 100
@@ -64,7 +64,7 @@ Durch die Gegenüberstellung beider Versionen mit Variablen fallen einige Dinge 
 Durch das Angeben eines Datentypens in Java, werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Die Unabhängigkeit von Datentypen in Python ist ein großer Vorteil gegenüber Java.\par
 Ein Sonderfall ist der Array oder auch die Liste. Während Java die beiden einzeln sieht, kombiniert Python die beiden. Ein Array ist eine Sammlung von Speichern für Werte mit einer konstanten Länge. Eine Liste ist eine Sammlung mit flexibler Länge, es können also Werte entfernt werden und hinzugefügt werden. Bei einem Array kann mit einem Index auf den Speicher zugegriffen werden. Eine Liste ist eine Verkettung von Werten und es kann immer nur auf das nächste Element zugegriffen werden. Wenn man auf das fünfte Element des Arrays zugreifen möchte geht das per genullten Index. Bei einer Liste wird mit dem ersten Element angefangen und es wird bis zum fünften Element auf den Nachbarn zugegriffen. Deshalb kann auch immer nur mit dem jetzigen Element in einer Liste gearbeitet werden. \cite{NRWListe}\cite{Louis:2010}\cite{Python3:Buch}
 
-\begin{lstlisting}[language=java,caption={Klasse in Python},captionpos=b,label={lst:java:array}]
+\begin{lstlisting}[language=java,caption={Array in Java},captionpos=b,label={lst:java:array}]
 public class Tisch
 {
     int breite;
@@ -83,9 +83,9 @@ public class Tisch
 }
 \end{lstlisting}
 
-In Java wird auf die einzelnen Speicher per Index zugegriffen, wie \ref{lst:java:array} zeigt. Nachteil davon ist, dass nicht auf Index 3 zugegriffen werden kann, dieser existiert nämlich nicht. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklarierung ändern lässt. Alle drei Elemente sind auf dem Tisch und die Anzahl der Elemente lässt sich nicht mehr verändern.
+In Java wird auf die einzelnen Speicher per Index zugegriffen, wie Listing \ref{lst:java:array} zeigt. Nachteil davon ist, dass nicht auf Index 3 zugegriffen werden kann, dieser existiert nämlich nicht. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklarierung ändern lässt. Alle drei Elemente sind auf dem Tisch und die Anzahl der Elemente lässt sich nicht mehr verändern.
 
-\begin{lstlisting}[language=java,caption={Klasse in Python},captionpos=b,label={lst:java:liste}]
+\begin{lstlisting}[language=java,caption={Liste in Java},captionpos=b,label={lst:java:liste}]
 public class Tisch
 {
     int breite;
@@ -106,7 +106,7 @@ public class Tisch
 
 Die Liste ermöglicht ein Hinzufügen von Elementen per \textit{append} und ein Löschen per \textit{remove}. Entfernt werden kann aber immer nur das aktuelle Element. Es lässt sich nicht per Index auf die Elemente zugreifen.
 
-\begin{lstlisting}[language=python,caption={Klasse in Python},captionpos=b,label={lst:python:liste}]
+\begin{lstlisting}[language=python,caption={Liste in Python},captionpos=b,label={lst:python:liste}]
 class Tisch:
   def __init__(self):
     self.laenge = 100
@@ -120,9 +120,62 @@ class Tisch:
     self.gegenstaende.pop(1)
 \end{lstlisting}
 
-Python erlaubt es mit dem \textit{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \textit{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \textit{remove()}. \textit{remove()} arbeitet mit einem Wert anstelle eines Indexes, welcher gelöscht werden soll. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Das Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.
+Python erlaubt es mit dem \textit{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \textit{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \textit{remove()}. \textit{remove()} arbeitet mit einem Wert anstelle eines Indexes, welcher gelöscht werden soll. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Das Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
+Das Erstellen eines Arrays in Java und der Liste in Python auf diese Art und Weise kann je nach Situation umständlich sein. Deshalb bieten beide Programmiersprachen eine vereinfachte Deklaration.\newpage
 
-\begin{lstlisting}[language=python,caption={If-Verzweigung in Python},captionpos=b,label={lst:python:if}]
-if hoehe + wert < max_hoehe and hoehe + wert > min_hoehe:
+\begin{lstlisting}[language=java,caption={Einfache Deklarierung eines Arrays in Java},captionpos=b,label={lst:java:ezarray}]
+String[] gegenstaende = {
+    "Buch", "Stift", "Pflanze"
+};
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={Einfach Deklarierung eines Arrays in Python},captionpos=b,label={lst:python:ezarray}]
+gegenstaende = [
+    'Buch', 'Stift', 'Pflnaze'
+]
+\end{lstlisting}
+
+Dazu kommen noch weitere Funktionen für Listen von Python, welche weder in Arrays noch in den Listen von Java enthalten sind. Beispielsweise kann man anstelle eines Indexes auch einen Bereich. Das macht Python noch kürzer und übersichtlicher\par
+Methoden sind Abfolgen von Anweisungen, welche per Methodenname aufgerufen werden können. Durch das Auskapseln von Code in Methoden entstehen mehrere Vorteile. Der Code lässt sich leichter wiederverwenden, das Programm ist insgesamt strukturierter und der geschriebene Code ist verständlicher. \cite{Python3:Buch}\cite{Louis:2010}
+
+\begin{lstlisting}[language=java,caption={Methoden in Java},captionpos=b,label={lst:java:methode}]
+public void verstelleTisch(double wert)
+{
+    hoehe = hoehe + wert;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={Methode in Python},captionpos=b,label={lst:python:methode}]
+def verstelle_tisch(wert):
     hoehe = hoehe + wert
 \end{lstlisting}
+
+Methoden in Python haben keinen Zugriffstypen, genauso wie bei Variablen sind Methoden immer \textit{public}. Da Python keine Datentypen hat haben Methoden auch keine Rückgabewerte. Der Methodenkopf besteht nur aus dem Schlüsselbegriff \textit{def}, dem Namen und Parametern, welche von Klammern umrahmt werden. Der Rumpf der Methode wird anders als in Java nur durch das Einrücken des Codes und dem Doppelpunkt am Ende des Methodenkopfes definiert. Wird der Code nicht eingerückt geschrieben wird er nicht der Methode zugeordnet. Parameter funktionieren in Java und Python gleich. Sie werden ebenfalls nicht mit einem Datentyp angegeben. Einen Wert von einer Methode zurück zu geben ist ebenfalls möglich. Der Rückgabewert kann bei Python vom Datentyp variieren, da die Methode nicht auf einen Datentyp festgelegt ist. Java lässt unterschiedliche Rückgabewerte in der gleichen Methode nicht zu. Laut der \textit{naming convention} werden Methoden nach den gleichen Prinzipen wie Variablen genannt \cite{Ims:h-s}\cite{Microsoft:CapCon}. \cite{Python3:Buch}\cite{Louis:2010}\par
+Methoden können in Python nicht überladen werden. Dafür gibt es Standartparameter. Im Methodenkopf wird dem Parameter mit dem Gleichheitszeichen ein Wert zugewiesen
+
+\begin{lstlisting}[language=python,caption={Methode in Python mit Standartparameter},captionpos=b,label={lst:python:sparameter}]
+def methode(parameter = 'standartparameter'):
+    print(parameter)
+\end{lstlisting}
+
+Beim Aufrufen der in Listing \ref{lst:python:sparameter} dargestellten Methode ist ein Parameter optional. Der Wert von \textit{parameter} ist “standartparameter“ wenn kein Wert angegeben wird. Wenn ein Wert angegeben wird, wird der Wert überschrieben.
+Mit der jetzigen Methode \textit{verstelleTisch} kann die Höhe beliebt sein. Das kann mit einer If-Abfrage verhindert werden. If-Abfragen sind in der Lage zwischen verschieden Fällen zu unterscheiden. In diesem spezifischen Beispiel gibt es zwei Fälle. Entweder geht die neue Höhe außerhalb des Toleranzbereichs oder sie bleibt drin. Die If-Abfrage wird in Java und Python gleich strukturiert, die Syntax unterscheidet sich jedoch. \cite{Python3:Buch}\cite{Louis:2010}
+
+\begin{lstlisting}[language=java,caption={If-Abfrage in Java},captionpos=b,label={lst:java:if}]
+if (hoehe + wert < maxHoehe && hoehe + wert > minHoehe)
+{
+    hoehe = hoehe + wert;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={If-Abfrage in Python},captionpos=b,label={lst:python:if}]
+if hoehe + wert < maxHoehe && hoehe + wert > minHoehe:
+    hoehe = hoehe + wert;
+\end{lstlisting}
+
+Listing \ref{lst:python:if} zeigt, dass der Doppelpunkt am Ende des Kopfes, sowie das Einrücken den Rumpf definieren.
+Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essenziellen Operatoren. \textit{\&\&} und \textit{||} werden in Python zu \textit{and} und \textit{or}. Die Funktionsweise bleibt gleich. Ebenfalls wichtig ist, dass das \textit{!} zu einem \textit{not} wird. Mit \textit{not} lassen sich genauso wie in Java \textit{boolean}-Werte umdrehen. \textit{Is} wird genutzt, um eine Variable mit \textit{None} zu vergleichen. Kombiniert mit \textit{not}, gibt \textit{is not} den Wert gedreht zurück. \cite{Python3:Buch}\cite{Louis:2010}
+Die dazugehörigen \textit{else if} und \textit{else} Zweige gibt es in Python ebenfalls. Lediglich wird \textit{else if} zu \textit{elif}. Durch die Operatoren wird deutlich das Python besser zu lesen ist. Die Längen der If-Abfragen unterscheiden sich unwichtig minimal.\par
+Als letztes werden die Schleifen in Java und Python gegenübergestellt. Schleifen wiederholen Aktionen solange bis eine Bedingung erfüllt ist. Dazu wird entweder die \textit{while}-Schleife oder die \textit{for}-Schleife genutzt.
+
+
