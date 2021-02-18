@@ -178,4 +178,30 @@ Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essen
 Die dazugehörigen \textit{else if} und \textit{else} Zweige gibt es in Python ebenfalls. Lediglich wird \textit{else if} zu \textit{elif}. Durch die Operatoren wird deutlich das Python besser zu lesen ist. Die Längen der If-Abfragen unterscheiden sich unwichtig minimal.\par
 Als letztes werden die Schleifen in Java und Python gegenübergestellt. Schleifen wiederholen Aktionen solange bis eine Bedingung erfüllt ist. Dazu wird entweder die \textit{while}-Schleife oder die \textit{for}-Schleife genutzt.
 
+\begin{lstlisting}[language=java,caption={while-Schleife Java},captionpos=b,label={lst:java:while}]
+String[] gegenstaende = {
+    "Buch", "Stift", "Pflanze"
+};
 
+public void schreibeGegenstaende()
+{
+    int i = 0;
+    while (i < gegenstaende.length())
+    {
+        System.out.println(Gegenstaende[i]);
+        i++;
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={while-Schleife Python},captionpos=b,label={lst:python:while}]
+gegenstaende = [
+    'Buch', 'Stift', 'Pflanze'
+]
+
+def schreibe_gegenstaende():
+    i = 0
+    while i < range(len(gegenstaende)):
+        print(gegenstaende[i])
+        i += 1
+\end{lstlisting}
