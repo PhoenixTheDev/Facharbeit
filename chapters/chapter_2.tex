@@ -178,7 +178,8 @@ Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essen
 Die dazugehörigen \textit{else if} und \textit{else} Zweige gibt es in Python ebenfalls. Lediglich wird \textit{else if} zu \textit{elif}. Durch die Operatoren wird deutlich das Python besser zu lesen ist. Die Längen der If-Abfragen unterscheiden sich unwichtig minimal.\par
 Als letztes werden die Schleifen in Java und Python gegenübergestellt. Schleifen wiederholen Aktionen solange bis eine Bedingung erfüllt ist. Dazu wird entweder die \textit{while}-Schleife oder die \textit{for}-Schleife genutzt.
 
-\begin{lstlisting}[language=java,caption={while-Schleife Java},captionpos=b,label={lst:java:while}]
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=java,caption={while-Schleife Java},captionpos=b,label={lst:java:while},numbers=left, frame=none]
 String[] gegenstaende = {
     "Buch", "Stift", "Pflanze"
 };
@@ -193,8 +194,9 @@ public void schreibeGegenstaende()
     }
 }
 \end{lstlisting}
-
-\begin{lstlisting}[language=python,caption={while-Schleife Python},captionpos=b,label={lst:python:while}]
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=python,caption={while-Schleife Python},captionpos=b,label={lst:python:while},frame=l]
 gegenstaende = [
     'Buch', 'Stift', 'Pflanze'
 ]
@@ -204,4 +206,55 @@ def schreibe_gegenstaende():
     while i < range(len(gegenstaende)):
         print(gegenstaende[i])
         i += 1
+        
+        
+
+.
 \end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=java,caption={for-Schleife Java},captionpos=b,label={lst:java:for},numbers=left, frame=none]
+public void schreibeGegenstaende()
+{
+    for(int i = 0; i < gegenstaende.length(); i++)
+    {
+        System.out.println(gegenstaende[i]);
+    }
+}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=python,caption={for-Schleife Python},captionpos=b,label={lst:python:for},frame=l]
+def schreibe_gegenstaende():
+    for i in range(len(gegenstaende)):
+        print(gegenstaende[i])
+        
+        
+
+.
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=java,caption={foreach-Schleife Java},captionpos=b,label={lst:java:foreach},numbers=left, frame=none]
+public void schreibeGegenstaende()
+{
+    for (String geg : gegenstaende)
+    {
+        System.out.println(geg);
+    }
+}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{lstlisting}[language=python,caption={foreach-Schleife Python},captionpos=b,label={lst:python:foreach},frame=l]
+public void schreibe_gegenstaende():
+    for geg in gegenstaende:
+        print(geg)
+        
+        
+
+.
+\end{lstlisting}
+\end{minipage}
