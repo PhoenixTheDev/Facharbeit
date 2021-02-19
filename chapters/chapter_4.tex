@@ -1,4 +1,4 @@
-\newcommand{\code}[1]{\texttt{#1}}
+
 
 \chapter{Implementieren des hexagonalen Schachs nach Glinski}
 Für die Implementierung des hexagonalen Schachs wird die Bibliothek \textit{pygame} genutzt. Diese vereinfacht es Spiele zu programmieren. Die Bibliothek stellt Methoden zur Verfügung, welche Fenster erstellen und Objekte malen. So eine Bibliothek erleichtert die Arbeit und ermöglicht einen schnelleren Start mit dem eigentlichen Programm. \textit{pygame} wird als Grundbaustein der Spieleprogrammierung in Python genutzt.
@@ -36,7 +36,7 @@ def mark_tile(self, tile):
 
 Die Methoden nimmt als Parameter ein Feld an. Wenn der Parameter kein Hexagon ist, was in Zeile \ref{m:line2} abgefragt wird, wird \textit{None} zurückgegeben. Mit \code{if tile.piece is not None:} wird überprüft ob auf dem Feld ein Stein steht. In der If-Abfrage wird weiter abgefragt, ob der Stein die gleiche Farbe hat wie die Figur, mit welcher gespielt wird. Ist das der Fall, wird „taken“ zurückgegeben. Ist auch das nicht der Fall, geht das Programm weiter und kommt zu dem Teil wo das Feld markiert wird. Zeile \ref{m:line9} erstellt ein Hexagon auf der Position, wo das valide Feld liegt. Es muss ein neues Hexagon gemalt werden, da von dem alten nicht die Farbe geändert werden kann. Die Figur, die auf dem Feld stand, wird in diesem Prozess ebenfalls übermalt. Deswegen muss diese wieder in den Vordergrund bewegt werden. Das wird mit \code{tile.piece.move\_towards(tile.x\_pos, tile.y\_pos, False)} gemacht. Als letztes wird die Variable \textit{is\_destination} auf \textit{True} gesetzt. Diese Variable wird beim Klicken auf ein Feld abgefragt. Ist \textit{is\_destination True} wird der Stein auf das Feld bewegt, ist \textit{is\_destination False} passiert nichts. Am Ende des Rumpfes der If-Abfrage wird „enemy“ zurückgegeben. Nach der If-Abfrage folgen die Befehle, welche ausgeführt werden, wenn kein Stein auf dem Feld ist. Mit dem gleichen Befehl wird ein neues Hexagon gemalt. Dieses Mal ist die Farbe Gelb, anstelle eines Rots. Dadurch werden Felder mit Gegnern und freie Felder unterschieden. Ebenfalls wird die Variable \textit{is\_destination} auf \textit{True} gesetzt. Der Rückgabewert ist „field can be destination“.
 
-\begin{lstlisting}[language=python,caption={Felder markieren},captionpos=b,label={lst:hexa:markieren},numbers=left,frame=none,escapechar=|]
+\begin{lstlisting}[language=python,caption={Markierung aufheben},captionpos=b,label={lst:hexa:aufheben},numbers=left,frame=none,escapechar=|]
 def tile_remove_mark(self, tile):
   if not isinstance(tile, GameBoard.Hexagon):
     return None
@@ -47,7 +47,40 @@ def tile_remove_mark(self, tile):
 
   tile.is_destination = False
   return "field no more destination"
-
 \end{lstlisting}
 
 \textit{tile\_remove\_mark} entfernt die Markierung wieder. Damit keine Fehler auftreten wird erst geprüft, ob der Parameter \textit{tile} wirklich ein Hexagon ist. Danach malt Zeile \ref{r:line5} das Hexagon mit der Standartfarbe. Wenn auf dem Feld eine Figur war, wird diese wieder nach vorne bewegt. \textit{is\_destination} wird wieder auf den Standartwert gesetzt.
+
+Die Methode, welche die Figuren bewegt, ist ebenfalls eine eigene Methode. Jede Figur vererbt die Methode von der Elternklasse \textit{Piece}.
+
+\begin{lstlisting}[language=python,caption={Figur bewegen},captionpos=b,label={lst:hexa:bewegen},numbers=left,frame=none,escapechar=|]
+def tile_remove_mark(self, tile):
+  if not isinstance(tile, GameBoard.Hexagon):
+    return None
+
+  GameBoard.Hexagon(tile.screen, tile.outer_radius, tile.inner_radius,tile.x_pos, tile.y_pos)|\label{r:line5}|
+  if tile.piece is not None:
+    tile.piece.move_towards(tile.x_pos, tile.y_pos, True, False)
+
+  tile.is_destination = False
+  return "field no more destination"
+\end{lstlisting}
+
+Die erwarteten Parameter sind die neuen X- und Y-Koordinaten, auf welchen die Figur gemalt wird. Die Standartparameter \textit{replace\_bottom} und \textit{moved} müssen beim Aufrufen der Methode nicht angegeben werden. Der Wert für den Parameter ist \textit{False}, wenn er nicht angegeben wird. In den ersten beiden Zeilen der Methode werden die Koordinaten erneuert. Die Liste \textit{offset} ist ein statischer Wert, welcher die Figur auf das Feld zentriert. Beim Bewegen wird die alte Figur nicht entfernt. Der beste weg die alte Figur zu entfernen, ist ein neues Hexagon über die alte Figur zu malen. \code{pygame.display.flip()} updatet das Fenster und die Änderungen werden angezeigt. Als letztes wird in der Methode die Variable \textit{at\_start} gleich \textit{False} gesetzt. \textit{at\_start} ist wichtig für die Steine, welche als erste Bewegungsmöglichkeiten besondere Regeln haben.\par
+Die Figuren haben jeweils zwei Methoden, welche von der Elternklasse vererbt werden. Beim Klicken auf eine Figur wird die \textit{show\_moves} Methode aufgerufen. Jede Figur hat eine eigene \textit{show\_moves} Methode, welche alle Felder mithilfe der \textit{mark\_tile} Methode markiert.\par
+Für die Figur werden die Seiten mit einer Schleife durchgelaufen. Als Beispiel wird der Turm genommen. Das Prinzip lässt sich auf die anderen Figuren übertragen. Bauern haben extra Regeln, welche sich aber aus dem Verhalten vom Bauern ableiten lassen.
+
+\begin{lstlisting}[language=python,caption={Figur zeige Bewegungsmöglichkeiten},captionpos=b,label={lst:hexa:show},numbers=left,frame=none,escapechar=|]
+def tile_remove_mark(self, tile):
+  if not isinstance(tile, GameBoard.Hexagon):
+    return None
+
+  GameBoard.Hexagon(tile.screen, tile.outer_radius, tile.inner_radius,tile.x_pos, tile.y_pos)|\label{r:line5}|
+  if tile.piece is not None:
+    tile.piece.move_towards(tile.x_pos, tile.y_pos, True, False)
+
+  tile.is_destination = False
+  return "field no more destination"
+\end{lstlisting}
+
+Mit der \textit{for}-Schleife werden die einzelnen Seiten durchgelaufen. Die Seite wird per Index bestimmt. Eine \textit{while}-Schleife läuft solange durch bis \textit{mark\_tile None} zurück gibt. Der Vorteil davon, ist dass das Feld direkt mit gefärbt wird. In der \textit{while}-Schleife werden die Felder an eine Liste angehängt. Beim Löschen der Markierung werden die Felder durchgelaufen. Wenn die Schleife auf einen Stein trifft gibt \textit{mark\_tile} kein \textit{None} zurück. Deswegen muss die \textit{while}-Schleife unterbrochen werden, wenn auf einen Stein getroffen wird. Als letztes wird die Variable \textit{tile} zu dem passenden Nachbarn aktualisiert.
