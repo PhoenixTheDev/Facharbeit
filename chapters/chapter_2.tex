@@ -1,12 +1,33 @@
 \newacronym{ide}{IDE}{Intelligent Development Environment}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\chapter{Grundlagen}
+\chapter{Syntaktischer Vergleich zwischen Java und Python}
+Java ist eine objektorientierte, \textit{typensichere}, kompilierte Programmiersprache. 
+Java wird auf einer \textit{Java Virtual Maschine} (JVM) ausgeführt. 
+Diese JVM gibt es für nahe zu jedes System. 
+Java wurde von den Programmiersprachen C und C++ inspiriert, weshalb die Syntax von Java und C/C++ einander ähnlich sind. 
+Java erschien 1995 und wird jeher für viele unterschiedliche Dinge genutzt. 
+Auf der Internetseite von Oracle, den Entwicklern von Java, wird geschrieben: „Mit Java können Sie Online-Spiele spielen, mit Menschen auf der ganzen Welt chatten, Ihre Hypothekenzinsen berechnen und Bilder in 3D betrachten, um nur einige Beispiele zu nennen“ \cite{Oracle:Java}. 
+Dazu ist Java auf 13 Milliarden Geräten vertreten, und seit über 20 Jahre unter den drei meistgenutzten Programmiersprachen der Welt \cite{Github:PYPL}. \cite{Louis:2010}\cite{Oracle:Twitter} 
+\par
+Python wurde in den 90er Jahren von Guido van Rossum entwickelt. 
+Er war an der Entwicklung von ABC, einer Prototyping fördernden Programmiersprache, beteiligt und hat mit der positiven und negativen Kritik Python entwickelt. 
+Deswegen wird Python immer noch für das Prototyping genutzt, aber das ist schon lange nicht mehr der Hauptanwendungsbereich. 
+Ursprünglich war Python als Skriptsprache für Amoeba, einem verteilten Betriebssystem, gedacht. 
+Der Name der Programmiersprache ist von der britischen Komikergruppe \textit{Monty Python} inspiriert. 
+Python ist, wie Java, ebenfalls eine objektorientierte, plattformunabhängige High-Level Programmiersprache. 
+Python wird nicht kompiliert, sondern wird interpretiert, was ein großer Unterschied gegenüber Java ist. 
+Weiter noch ist Python nicht \textit{typensicher}. 
+Wie ABC soll Python einfach zu verstehen und zu lesen sein. 
+Bei Python wurde stark darauf geachtet, dass die Programmiersprache mächtig ist, was bei ABC nicht der Fall war und oft kritisiert wurde. 
+Mächtig ist Python dadurch, dass mit kleinen und übersichtlichen Programmen komplexe Aufgaben gelöst werden können. 
+Python kann für die Web- und App-Entwicklung genutzt werden. 
+Durch eine Vielzahl an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, Maschine Learning und Deep Learning besonders beliebt \cite{PythonCS}. 
+Das liegt auch daran, dass Python Bibliotheken so einfach wie möglich bereitstellt. 
+Die Standartbibliothek ist sehr umfangreich. 
+Beispielsweise ist das Summieren eines jeden Elements in einem Array in Python durch eine Methode in der Standardbibliothek bereits implementiert, während bei Java auf komplexere Wege zurückgegriffen werden muss. \cite{Python3:Buch}
 
-Java ist eine objektorientierte, \textit{typensichere}, kompilierte Programmiersprache, welche plattformunabhängig ist, da Java auf einer \textit{Java Virtual Maschine} (JVM) ausgeführt wird. Diese JVM gibt es für nahe zu jedes System. Java wurde von der Programmiersprache C inspiriert, weshalb die Syntax von Java und C einander ähnlich sind. Java erschien 1995 und wird jeher für viele unterschiedliche Dinge genutzt. Auf der Internetseite von Oracle, den Entwicklern von Java, wird geschrieben: „Mit Java können Sie Online-Spiele spielen, mit Menschen auf der ganzen Welt chatten, Ihre Hypothekenzinsen berechnen und Bilder in 3D betrachten, um nur einige Beispiele zu nennen“ \cite{Oracle:Java}. Dazu ist Java auf 13 Milliarden Geräten vertreten, und seit über 20 Jahre unter den drei meistgenutzten Programmiersprachen der Welt \cite{Github:PYPL}. \cite{Louis:2010}\cite{Oracle:Twitter} \par
-Python wurde in den 90er Jahren von Guido van Rossum entwickelt. Er war an der Entwicklung von ABC beteiligt und hat mit der positiven und negativen Kritik Python entwickelt. Ursprünglich war sie als Skriptsprache für Amoeba, einen verteiltes Betriebssystem, gedacht. Der Name der Programmiersprache ist von der britischen Komikergruppe \textit{Monty Python} inspiriert. Python ist, wie Java, ebenfalls eine objektorientierte, plattformunabhängige High-Level Programmiersprache. Python wird nicht kompiliert, sondern wird interpretiert, was ein großer Unterschied gegenüber Java ist. Weiter noch ist Python nicht \textit{typensicher}. Wie ABC soll Python einfach zu verstehen und zu lesen sein. Bei Python wurde stark darauf geachtet, dass die Programmiersprache mächtig ist, was bei ABC nicht der Fall war und oft kritisiert wurde. Mächtig wird Python dadurch, dass mit kleinen und übersichtlichen Programmen komplexe Aufgaben gelöst werden können. Python kann für die Web- und App-Entwicklung genutzt werden. Durch eine Vielzahl an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, Maschine Learning und Deep Learning besonders beliebt \cite{PythonCS}. Das liegt auch daran, dass Python Bibliotheken so einfach wie möglich bereitstellt. Die Standartbibliothek ist sehr umfangreich. Beispielsweise ist das Summieren eines jeden Elements in einem Array in Python durch eine Methode in der Standardbibliothek bereits implementiert, während bei Java auf komplexere Wege zurückgegriffen werden muss. \cite{Python3:Buch}
-
-\section{Grundbausteine und Funktionen}
+\section{Das erste Programm und Klassen}
 
 Für den ausführlichen Vergleich der beiden Programmiersprachen, werden Syntax, Codelänge, Arbeitsspeicherauslastung und Laufzeit verglichen und daraus ein Resultat gezogen.
 In Java wird der Einstiegspunkt durch das \textit{\acrlong{ide}} (IDE) BlueJ definiert. Der Startpunkt für das Programm wird von IDE zu IDE unterschiedlich definiert. Die für Python genutzte IDE \textit{pyCharm}, welche die fünft meistgenutzte IDE der Welt ist, führt entweder eine \textit{main.py} Datei aus oder es wird manuell ein Einstiegspunkt definiert \cite{Github:IDE}\cite{PyCharm}. Das geschieht wie in \ref{lst:pystart} gezeigt.
@@ -42,6 +63,7 @@ class Tisch:
 
 Listing \ref{lst:java:class} und Listing \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer \textit{public}. In der Klasse ist ein Konstruktor enthalten. Dieser wird in Java und Python unter den gleichen Bedingungen ausgeführt. Der Konstruktor besteht jeweils aus einem Kopf und einen Rumpf. Der Kopf in Java besteht aus dem Schlüsselbegriff \textit{public} oder \textit{private}, dem Namen der Klasse und Parameterklammern. Anders ist das in Python, wo der Konstruktor aus den Schlüsselbegriffen \textit{def} und \textit{\_\_init\_\_}, sowie den Parameterklammer und einem Doppelpunkt besteht. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Der Code endet in Java mit einem Semikolon, in Python wird nichts angehängt. Besonders durch die fehlenden geschweiften Klammern, sondern dem Definieren der Rümpfe durch das Einrücken des Codes ist Python um vier Zeilen kürzer. Sofern man sich an die Formatierungsregeln hält. Aber weniger Zeichen hat Python auch. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. \par
 
+\section{Werte speichern und wiederverwenden mit Variablen}
 Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Anzahl der Beine und Dicke des Tisches. Diese Werte werden in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Eine Variable hält entweder einen Wert (primitiv) oder eine Referenz auf den Wert (Referenz). Folglich ist eine Variable ein Speicherplatz. Der Wert im Speicher kann immer wieder geändert werden. In Java müssen die Werte immer mit dem Typ übereinstimmen. Java hat vier primitive Datentypen. \textit{Int, double, char und boolean} müssen immer einen Wert haben. \textit{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Python hat keine Datentypen. Eine Variable kann immer jede Art von Wert speichern. Wie in jeder Sprache haben auch Programmiersprachen eine Art Rechtschreibung. Variablen werden nach bestimmten Richtlinien benannt, was ein leichteres Lesen des Codes ermöglichen. Nach diesen \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. In der \textit{naming convention} von Python werden Variablen nach \textit{snake\_case} benannt \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
 
 \begin{minipage}{.5\linewidth}
@@ -156,6 +178,8 @@ gegenstaende = [
 \end{minipage}
 
 Dazu kommen noch weitere Funktionen für Listen von Python, welche weder in Arrays noch in den Listen von Java enthalten sind. Beispielsweise kann man anstelle eines Indexes auch einen Bereich. ['Stift', 'Pflanze'] ist die Liste welche von \code{gegenstaende[1:2]} wiedergegeben wird. Das macht Python noch kürzer und übersichtlicher.\par
+
+\section{Wiederverwenden von Code mithilfe von Methoden}
 Methoden sind Abfolgen von Anweisungen, welche per Methodenname aufgerufen werden können. Durch das Auskapseln von Code in Methoden entstehen mehrere Vorteile. Der Code lässt sich leichter wiederverwenden, das Programm ist insgesamt strukturierter und der geschriebene Code ist verständlicher. \cite{Python3:Buch}\cite{Louis:2010}
 
 \begin{minipage}{.5\linewidth}
@@ -206,6 +230,9 @@ if hoehe + wert < maxHoehe && hoehe + wert > minHoehe:
 Listing \ref{lst:python:if} zeigt, dass der Doppelpunkt am Ende des Kopfes, sowie das Einrücken den Rumpf definieren.
 Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essenziellen Operatoren. \textit{\&\&} und \textit{||} werden in Python zu \textit{and} und \textit{or}. Die Funktionsweise bleibt gleich. Ebenfalls wichtig ist, dass das \textit{!} zu einem \textit{not} wird. Mit \textit{not} lassen sich genauso wie in Java \textit{boolean}-Werte umdrehen. \textit{Is} wird genutzt, um eine Variable mit \textit{None} zu vergleichen. Kombiniert mit \textit{not}, gibt \textit{is not} den Wert gedreht zurück. Durch die Operatoren wird deutlich das Python viel Wert auf die Lesbarkeit legt.
 Die dazugehörigen \textit{else if} und \textit{else} Zweige gibt es in Python ebenfalls. Lediglich wird \textit{else if} zu \textit{elif}.  Die Längen der If-Abfragen unterscheiden sich unwichtig minimal.\cite{Python3:Buch}\cite{Louis:2010}\par
+
+% ----------------- new section ------------------
+\section{Durch Schleifen Prozesse wiederholen}
 Als letztes werden die Schleifen in Java und Python gegenübergestellt. Schleifen wiederholen Aktionen solange bis eine Bedingung erfüllt ist. Dazu wird entweder die \textit{while}-Schleife, die \textit{for}-Schleife oder die \textit{foreach}-Schleife genutzt.
 
 \begin{minipage}{.5\linewidth}
