@@ -114,7 +114,7 @@ Durch die Gegenüberstellung beider Versionen mit Variablen fallen einige Dinge 
 \par
 Durch das Fehlen eines Datentyp werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Durch das Fehlen von Datentypen laufen einem schneller Fehler unter und es muss möglicherweise im Code mehr \textit{exception handling} betrieben werden.
 \par
-Ein Sonderfall ist das Array oder auch die Liste. Während Java Arrays und Listen besitzt, kennt Python nur die Liste. Ein Array ist eine Sammlung von Speichern für Werte mit einer konstanten Länge. Eine Liste ist eine Sammlung mit flexibler Länge, es können also Werte entfernt werden und hinzugefügt werden. Bei einem Array kann mit einem Index auf den Speicher zugegriffen werden. Eine Liste ist eine Verkettung von Werten und es kann immer nur auf das nächste Element zugegriffen werden. Wenn man auf das fünfte Element des Arrays zugreifen möchte geht das per genullten Index. Bei einer Liste in Java wird mit dem ersten Element angefangen und es wird bis zum fünften Element auf den Nachbarn zugegriffen. Deshalb kann auch immer nur mit dem jetzigen Element in einer Liste gearbeitet werden. Python lässt auf die Elemente einer Liste auch per Index zugreifen. \cite{NRWListe}\cite{Louis:2010}\cite{Python3:Buch}
+Ein Sonderfall ist das Array oder auch die Liste. Während Java Arrays und Listen besitzt, kennt Python nur die Liste. Ein Array ist eine Sammlung von Speichern für Werte mit einer konstanten Länge. Eine Liste ist eine Sammlung mit flexibler Länge, es können also Werte entfernt werden und hinzugefügt werden. Bei einem Array kann mit einem Index auf den Speicher zugegriffen werden. Eine Liste ist eine Verkettung von Werten und es kann immer nur auf das nächste Element zugegriffen werden. Wenn man auf das fünfte Element des Arrays zugreifen möchte geht das per genullten Index. Bei einer Liste in Java wird mit dem ersten Element angefangen und es wird bis zum fünften Element auf den Nachbarn zugegriffen. Deshalb kann auch immer nur mit dem jetzigen Element in einer Liste gearbeitet werden. Python lässt auf die Elemente einer Liste auch per Index zugreifen. \cite{Louis:2010}\cite{Python3:Buch}
 
 \begin{lstlisting}[language=java,caption={Array in Java},captionpos=b,label={lst:java:array},frame=none]
 public class Tisch
@@ -137,26 +137,30 @@ public class Tisch
 
 In Java wird auf die einzelnen Speicher per Index zugegriffen, wie Listing \ref{lst:java:array} zeigt. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklaration ändern lässt. Alle drei Elemente sind auf dem Tisch und das lässt sich nicht mehr ändern.
 \newpage
-\begin{lstlisting}[language=java,caption={Liste in Java},captionpos=b,label={lst:java:liste},frame=none]
+\begin{lstlisting}[language=java,caption={Liste in Java},captionpos=b,label={lst:java:liste},frame=none,escapechar=|]
+import java.util.ArrayList; |\label{lij;l1}|
+
 public class Tisch
 {
     int breite;
     int laenge = 100;
   
-    List<String> gegenstaende = new List<String>();
+    ArrayList<String> gegenstaende = new ArrayList<String>();
   
     public Tisch()
     {
         breite = 50;
     
-        gegenstaende.append("Buch");
-        gegenstaende.append("Stift");
-        gegenstaende.append("Pflanze");
+        gegenstaende.add("Buch");
+        gegenstaende.add("Stift");
+        gegenstaende.add("Pflanze");
+        gegenstaende.remove(0);
+        gegenstaende.remove("Stift");
     }
 }
 \end{lstlisting}
 
-Die Liste ermöglicht ein Hinzufügen von Elementen per \textit{append()} und ein Löschen per \textit{remove()}. Entfernt werden kann aber immer nur das aktuelle Element. Es lässt sich nicht per Index auf die Elemente zugreifen.
+Die Liste ermöglicht ein Hinzufügen von Elementen per \textit{add()} und ein Löschen per \textit{remove()}. Ein Element kann entweder per nullbasierten Index oder per Wert entfernt werden. Damit die \textit{ArrayList} genutzt werden kann, muss die Bibliothek am Anfang des Dokuments importiert werden. Ein Import besteht immer aus zwei Komponenten, dem Schlüsselbegriff \texttt{import}  und der Bibliothek (vlg. \ref{lst:java:liste} in Zeile \ref{lij;l1}). Einer Liste des \textit{String} Datentypen kann kein anderer Datentyp angefügt werden. Das bedeutet, dass \texttt{gegenstaende.add(1);} einen Fehler erzeugt.
 
 \begin{lstlisting}[language=python,caption={Liste in Python},captionpos=b,label={lst:python:liste},frame=none]
 class Tisch:
@@ -173,24 +177,29 @@ class Tisch:
 \end{lstlisting}
 
 Python erlaubt es mit dem \textit{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \textit{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \textit{remove()}. \textit{remove()} arbeitet mit einem Wert, welcher gelöscht werden soll, anstelle eines Indexes. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Dass Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
-Das Erstellen eines Arrays in Java und der Liste in Python auf diese Art und Weise kann je nach Situation umständlich sein. Deshalb bieten beide Programmiersprachen eine vereinfachte Deklaration.
+Das Erstellen einer Liste auf diese Art und Weise kann je nach Situation umständlich sein. Ein Weg \texttt{add()} zu umgehen wird in Listing \ref{lst:java:ezarray} und Listing \ref{lst:python:ezarray} gezeigt.
 
 \begin{minipage}{.5\linewidth}
 \begin{lstlisting}[language=java,caption={Einfache Deklarierung Java},captionpos=b,label={lst:java:ezarray},frame=none]
-String[] gegenstaende = {
-    "Buch", "Stift", "Pflanze"
-};
+import java.util.Arrays;
+
+String[] array = {"Buch", "Stift", "Pflanze"};
+ArrayList<String> gegenstaende = new ArrayList<String>(Arrays.asList(array));
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{.5\linewidth}
-\begin{lstlisting}[language=python,caption={Einfach Deklarierung Python},captionpos=b,label={lst:python:ezarray},frame=l]
+\begin{lstlisting}[language=python,caption={Einfach Deklarierung Python},captionpos=b,label={lst:python:ezarray},frame=l,escapechar=|]
 gegenstaende = [
     'Buch', 'Stift', 'Pflanze'
 ]
+
+|\label{aieuwghf}|
 \end{lstlisting}
 \end{minipage}
 
-Dazu kommen noch \textit{slicing} für Listen von Python, welche weder in Arrays noch in den Listen von Java enthalten sind. Beispielsweise kann man anstelle eines Indexes auch einen Bereich. ['Stift', 'Pflanze'] ist die Liste welche von \code{gegenstaende[1:2]} wiedergegeben wird. Das macht Python noch kürzer und übersichtlicher. Auch kann ein negativer Index angegeben werden. Der Index \texttt{[-1]} ist das letzte Element einer Liste.\par
+Python macht das erstellen einer Liste besonders einfach. Java bietet die vereinfachte Deklaration nur für Arrays. Ein erstellte Array lässt sich in eine \textit{ArrayList} umwandeln (vgl. Listing \ref{lst:java:ezarray}). Damit lässt sich auf eine ähnliche Weise eine Liste erstellen, aber die Laufzeit wird davon länger.
+
+Ein weiteres Feature nur für Python ist \textit{slicing}. Damit kann man anstelle eines Indexes auch einen Bereich angeben. ['Stift', 'Pflanze'] ist die Liste welche von \code{gegenstaende[1:2]} wiedergegeben wird. Das macht Python noch kürzer und übersichtlicher. Auch kann ein negativer Index kann angegeben werden. Der Index \texttt{[-1]} ist das letzte Element einer Liste.\par
 
 % ------------------ Wiederverwenden von Code mithilfe von Methoden ---------------------------
 \section{Wiederverwenden von Code mithilfe von Methoden}
@@ -333,8 +342,7 @@ public void schreibe_gegenstaende():
 \end{lstlisting}
 \end{minipage}
 
-Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus den Schlüsselwort \textit{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus den Schlüsselwort \textit{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \textit{while} und \textit{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \textit{len()} und \textit{range()} helfen dabei. Die Länge eines iterierbaren Datentyps wird von \textit{len()} wiedergegeben \cite{w3school_len}. \textit{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. 
-Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben.  Der Code \code{print(gegenstaende)} reicht um jedes Element einer Liste zu schreiben.\cite{Python3:Buch}\cite{Louis:2010}
+Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus den Schlüsselwort \textit{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus den Schlüsselwort \textit{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \textit{while} und \textit{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \textit{len()} und \textit{range()} helfen dabei. Die Länge eines iterierbaren Datentyps wird von \textit{len()} wiedergegeben \cite{w3school_len}. \textit{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben. Der Code \code{print(gegenstaende)} reicht in Python um eine Liste auszugeben. Für Java gilt ebenfalls, dass \texttt{System.out.prinln(gegenstaende)} jedes Element der Liste schreibt. Ein Array muss per Schleife ausgegeben werden. \cite{Python3:Buch}\cite{Louis:2010}
 \par
 % ------------------- Laufzeit und Ressourcennutzung --------------------
 \section{Laufzeit und Ressourcennutzung}
