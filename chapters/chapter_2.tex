@@ -73,7 +73,7 @@ Listing \ref{lst:java:class} und Listing \ref{lst:python:class} schreiben, sobal
 % --------------------- Werte speichern und wiederverwenden mit Variablen ----------------------------
 % Grundfunktion von Variablen
 \section{Werte speichern und wiederverwenden mit Variablen}\label{wsuwmv}
-Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Anzahl der Beine und Dicke des Tisches. Attribute funktionieren wie Variablen.  Durch die Variable lässt sich auf einen Wert zugreifen. Ein Attribut gilt dabei für die ganze Klasse und eine Variable nur lokal. Der Wert beider wird in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Dabei kann sich die Art und Weise unterscheiden wie auf den Wert zugegriffen wird. Im folgenden wird von Variable gesprochen, aber es gilt genauso für Attribute. Eine Variable hält entweder einen Wert oder eine Referenz auf den Wert. Java ist typensicher, das bedeutet, dass die ein Speicher mit einer Ganzzahl nichts anderes als eine Ganzzahl beinhalten darf. Java hat acht primitive Datentypen: \texttt{int, double, char, boolean, byte, short, long} und \texttt{float} müssen immer einen Wert haben. \texttt{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Python ist nicht typensicher, eine Variable kann jede Art von Wert speichern. Variablen werden nach bestimmten Richtlinien benannt, was ein leichteres Lesen des Codes ermöglichen. Laut dieser \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Die \textit{naming convention} von Python besagt, dass Variablen nach \textit{snake\_case} benannt werden \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
+Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Dicke des Tisches und Anzahl der Beine. Ein Attribut ist eine für die ganze Klasse gültige Variable. Eine Variable gilt sonst nur lokal, also in der Methode oder Schleife, in welcher die Variable deklariert wurde. Durch eine Variable lässt sich auf einen Wert zugreifen. Der Wert wird in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Dabei kann sich die Art und Weise unterscheiden wie auf den Wert zugegriffen wird. Eine Variable hält entweder einen Wert oder eine Referenz auf den Wert. Java hat acht primitive Datentypen: \texttt{int, double, char, boolean, byte, short, long} und \texttt{float} müssen immer einen Wert haben. \texttt{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Java ist typensicher, das bedeutet, dass ein Speicher mit einer Ganzzahl nichts anderes als eine Ganzzahl beinhalten darf. Python ist nicht typensicher, eine Variable kann jede Art von Wert speichern. Variablen werden nach bestimmten Richtlinien benannt, was ein leichteres Lesen des Codes ermöglichen. Laut dieser \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Die \textit{naming convention} von Python besagt, dass Variablen nach \textit{snake\_case} benannt werden \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
 
 % Code Demonstration von Attributen
 \begin{minipage}{.5\linewidth}
@@ -110,7 +110,7 @@ class Tisch:
 \end{minipage}
 
 % Unterschiede der Syntax und Semantik
-Durch die Gegenüberstellung beider Versionen mit Variablen fallen einige Dinge auf. Die globalen Variablen werden im Konstruktor initialisiert und deklariert. Das \textit{self.} macht die Variablen in der kompletten Klasse nutzbar. Ohne das \textit{self} sind die Variablen nur im Konstruktor nutzbar. Variablen die nur im Konstruktor oder in Methoden nutzbar sind werden auch temporäre Variablen genannt, da der Wert nur temporär ist und nach dem durchlaufen des Konstruktors oder der Methode verworfen wird. Java nutzt ebenfalls \textit{this} als \textit{self}. Vorteilhafterweise wird \textit{this} in Java automatisch ergänzt und muss deswegen nicht angegeben werden. 
+Durch die Gegenüberstellung beider Versionen mit Attributen fallen einige Dinge auf. Die Attribute werden im Konstruktor deklariert und initialisiert. Das \texttt{self} macht die Variablen zu Attributen. Ohne das \texttt{self} sind es nur Variablen und damit nur im Konstruktor nutzbar. Ergänzend dazu gibt es noch temporäre Variablen. Diese speichern einen Wert nur für einen kurzen Zeitraum und sind meist unwichtig für den weiteren Verlauf des Programms. Ein beispielhafter Anwendungszweck ist der Dreickstausch, mit dem die Werte in den Variablen getauscht werden. \texttt{this} ist der Schlüsselbegriff für \texttt{self} in Java. Vorteilhafterweise wird \texttt{this} in Java automatisch ergänzt und muss deswegen nicht angegeben werden. Dafür muss ein Attribut in die Klasse geschrieben werden. 
 \par
 Durch das Fehlen eines Datentyp werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Durch das Fehlen von Datentypen laufen einem schneller Fehler unter und es muss möglicherweise im Code mehr \textit{exception handling} betrieben werden.
 \par
@@ -154,13 +154,14 @@ public class Tisch
         gegenstaende.add("Buch");
         gegenstaende.add("Stift");
         gegenstaende.add("Pflanze");
+        gegenstaende.set(0, "Faust");
         gegenstaende.remove(0);
         gegenstaende.remove("Stift");
     }
 }
 \end{lstlisting}
 
-Die Liste ermöglicht ein Hinzufügen von Elementen per \textit{add()} und ein Löschen per \textit{remove()}. Ein Element kann entweder per nullbasierten Index oder per Wert entfernt werden. Damit die \textit{ArrayList} genutzt werden kann, muss die Bibliothek am Anfang des Dokuments importiert werden. Ein Import besteht immer aus zwei Komponenten, dem Schlüsselbegriff \texttt{import}  und der Bibliothek (vlg. \ref{lst:java:liste} in Zeile \ref{lij;l1}). Einer Liste des \textit{String} Datentypen kann kein anderer Datentyp angefügt werden. Das bedeutet, dass \texttt{gegenstaende.add(1);} einen Fehler erzeugt.
+Die Liste ermöglicht ein Hinzufügen von Elementen per \texttt{add()} und ein Löschen per \texttt{remove()}. Ein Element kann entweder per nullbasierten Index oder per Wert entfernt werden. Werte werden mit \texttt{set()} überschrieben. Übergabeparameter sind nullbasierter Index und der neue Wert. Damit die \textit{ArrayList} genutzt werden kann, muss die Bibliothek am Anfang des Dokuments importiert werden. Ein Import besteht immer aus zwei Komponenten, dem Schlüsselbegriff \texttt{import}  und der Bibliothek (vlg. \ref{lst:java:liste} in Zeile \ref{lij;l1}). Einer Liste des \textit{String} Datentypen kann kein anderer Datentyp angefügt werden. Das bedeutet, dass \texttt{gegenstaende.add(1);} einen Fehler erzeugt.
 
 \begin{lstlisting}[language=python,caption={Liste in Python},captionpos=b,label={lst:python:liste},frame=none]
 class Tisch:
@@ -169,14 +170,14 @@ class Tisch:
     self.breite = 50
     self.gegenstaende = []
     self.gegenstaende.add('Buch')
-    self.gegenstaende[0] = 'Faus'
+    self.gegenstaende[0] = 'Faust'
     self.gegenstaende.add('Stift')
     self.gegenstaende.add('Pflanze')
     self.gegenstaende.remove('Pflanze')
     self.gegenstaende.pop(1)
 \end{lstlisting}
 
-Python erlaubt es mit dem \textit{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \textit{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \textit{remove()}. \textit{remove()} arbeitet mit einem Wert, welcher gelöscht werden soll, anstelle eines Indexes. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Dass Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
+Python erlaubt es mit dem \texttt{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \texttt{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \texttt{remove()}. \texttt{remove()} arbeitet mit einem Wert, welcher gelöscht werden soll, anstelle eines Indexes. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Dass Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
 Das Erstellen einer Liste auf diese Art und Weise kann je nach Situation umständlich sein. Ein Weg \texttt{add()} zu umgehen wird in Listing \ref{lst:java:ezarray} und Listing \ref{lst:python:ezarray} gezeigt.
 
 \begin{minipage}{.5\linewidth}
@@ -203,7 +204,7 @@ Ein weiteres Feature nur für Python ist \textit{slicing}. Damit kann man anstel
 
 % ------------------ Wiederverwenden von Code mithilfe von Methoden ---------------------------
 \section{Wiederverwenden von Code mithilfe von Methoden}
-Methoden sind Abfolgen von Anweisungen, welche per Methodenname aufgerufen werden können. Durch das Auskapseln von Code in Methoden entstehen mehrere Vorteile. Der Code lässt sich leichter wiederverwenden, das Programm ist insgesamt strukturierter und der geschriebene Code ist verständlicher. \cite{Python3:Buch}\cite{Louis:2010}
+Methoden sind Abfolgen von Anweisungen, welche per Methodenname aufgerufen werden können. Durch das Auskapseln von Code in Methoden entstehen mehrere Vorteile. Der Code lässt sich leichter wiederverwenden, das Programm ist insgesamt strukturierter und der geschriebene Code ist verständlicher. \cite{Louis:2010}\cite{Python3:Buch}
 
 \begin{minipage}{.5\linewidth}
 \begin{lstlisting}[language=java,caption={Methoden in Java},captionpos=b,label={lst:java:methode},frame=none]
@@ -222,7 +223,7 @@ def verstelle_tisch(wert):
 \end{lstlisting}
 \end{minipage}
 
-Methoden in Python haben keinen Zugriffstypen, genauso wie bei Variablen sind Methoden immer \texttt{public}. Der Methodenkopf besteht nur aus dem Schlüsselbegriff \textit{def}, dem Namen und Parametern, welche von Klammern umrahmt werden. Der Rumpf der Methode wird anders als in Java nur durch das Einrücken des Codes und dem Doppelpunkt am Ende des Methodenkopfes definiert. Wird der Code nicht eingerückt geschrieben wird er nicht der Methode zugeordnet. Parameter funktionieren in Java und Python gleich. Werden in Python aber nicht mit einem Datentyp angegeben. Einen Wert von einer Methode zurück zu geben ist ebenfalls möglich. Der Rückgabewert kann bei Python vom Datentyp variieren, da die Methode nicht auf einen Datentyp festgelegt ist. Java lässt unterschiedliche Rückgabewerte in der gleichen Methode nicht zu. Laut der \textit{naming convention} werden Methoden nach den gleichen Prinzipen wie Variablen genannt \cite{Ims:h-s}\cite{Microsoft:CapCon}. \cite{Python3:Buch}\cite{Louis:2010}
+Methoden in Python haben keinen Zugriffstypen, genauso wie bei Variablen sind Methoden immer \texttt{public}. Der Methodenkopf besteht nur aus dem Schlüsselbegriff \textit{def}, dem Namen und Parametern, welche von Klammern umrahmt werden. Der Rumpf der Methode wird anders als in Java nur durch das Einrücken des Codes und dem Doppelpunkt am Ende des Methodenkopfes definiert. Wird der Code nicht eingerückt geschrieben wird er nicht der Methode zugeordnet. Parameter funktionieren in Java und Python gleich. Werden in Python aber nicht mit einem Datentyp angegeben. Einen Wert von einer Methode zurück zu geben ist ebenfalls möglich. Der Rückgabewert kann bei Python vom Datentyp variieren, da die Methode nicht auf einen Datentyp festgelegt ist. Java lässt unterschiedliche Rückgabewerte in der gleichen Methode nicht zu. Laut der \textit{naming convention} werden Methoden nach den gleichen Prinzipen wie Variablen genannt \cite{Microsoft:CapCon}\cite{Ims:h-s}. \cite{Louis:2010}\cite{Python3:Buch}
 \par
 % Standardparameter ->
 Methoden können in Python nicht überladen werden. Dafür gibt es Standardparameter, was ein Überladen von Methoden überflüssig macht. Im Methodenkopf wird dem Parameter ein Wert zugewiesen.
@@ -234,7 +235,7 @@ def methode(parameter = 'standardparameter'):
 
 Beim Aufrufen der in Listing \ref{lst:python:sparameter} dargestellten Methode ist ein Parameter optional. Der Wert von \textit{parameter} ist “standardparameter“ sofern kein Wert für den Parameter angegeben wird.\par
 \section{Überprüfen von Werten durch If-Abfragen}
-Mit der jetzigen Methode \textit{verstelleTisch} kann die Höhe beliebt sein. Das kann mit einer If-Abfrage verhindert werden. If-Abfragen sind in der Lage zwischen verschieden Fällen zu unterscheiden. In diesem spezifischen Beispiel gibt es zwei Fälle. Entweder ist die Höhe nicht gültig, da sie nicht im vorhergesehenen Toleranzbereich liegt oder sie bleibt innerhalb des Bereichs. Die If-Abfrage wird in Java und Python gleich strukturiert, die Syntax unterscheidet sich jedoch. \cite{Python3:Buch}\cite{Louis:2010}
+Mit der jetzigen Methode \textit{verstelleTisch} kann die Höhe beliebt sein. Das kann mit einer If-Abfrage verhindert werden. If-Abfragen sind in der Lage zwischen verschieden Fällen zu unterscheiden. In diesem spezifischen Beispiel gibt es zwei Fälle. Entweder ist die Höhe nicht gültig, da sie nicht im vorhergesehenen Toleranzbereich liegt oder sie bleibt innerhalb des Bereichs. Die If-Abfrage wird in Java und Python gleich strukturiert, die Syntax unterscheidet sich jedoch. \cite{Louis:2010}\cite{Python3:Buch}
 
 \begin{minipage}{.5\linewidth}
 \begin{lstlisting}[language=java,caption={If-Abfrage in Java},captionpos=b,label={lst:java:if},frame=none]
@@ -255,7 +256,7 @@ if hoehe + wert < maxHoehe and hoehe + wert > minHoehe:
 
 Listing \ref{lst:python:if} zeigt, dass der Doppelpunkt am Ende des Kopfes, sowie das Einrücken den Rumpf definieren.
 Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essenziellen Operatoren. \texttt{\&\&} und \texttt{||} werden in Python zu \texttt{and} und \texttt{or}. Die Funktionsweise bleibt gleich. Ebenfalls wichtig ist, dass das \texttt{!} zu einem \texttt{not} wird. Mit \texttt{not} lassen sich genauso wie in Java \textit{boolean}-Werte umdrehen. \texttt{Is} wird genutzt, um eine Identitätsvergleich durchzuführen. In Java wird \texttt{is} als \textit{==} dargestellt. Die beiden Gleichheitszeichen werden genutzt um Werte zu vergleichen und entspricht \texttt{equals()} in Java. Kombiniert mit \texttt{not}, gibt \texttt{is not} den Wert gedreht zurück. Durch die Operatoren wird deutlich das Python viel Wert auf die Lesbarkeit legt.
-Die dazugehörigen \texttt{else if} und \texttt{else} Zweige gibt es in Python ebenfalls. Lediglich wird \texttt{else if} zu \texttt{elif}.  Die Längen der If-Abfragen unterscheiden sich nur minimal.\cite{Python3:Buch}\cite{Louis:2010}\par
+Die dazugehörigen \texttt{else if} und \texttt{else} Zweige gibt es in Python ebenfalls. Lediglich wird \texttt{else if} zu \texttt{elif}.  Die Längen der If-Abfragen unterscheiden sich nur minimal. \cite{Louis:2010}\cite{Python3:Buch}\par
 
 % ----------------- Durch Schleifen Prozesse wiederholen ------------------
 \section{Durch Schleifen Prozesse wiederholen}
@@ -342,7 +343,7 @@ public void schreibe_gegenstaende():
 \end{lstlisting}
 \end{minipage}
 
-Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus den Schlüsselwort \textit{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus den Schlüsselwort \textit{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \textit{while} und \textit{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \textit{len()} und \textit{range()} helfen dabei. Die Länge eines iterierbaren Datentyps wird von \textit{len()} wiedergegeben \cite{w3school_len}. \textit{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben. Der Code \code{print(gegenstaende)} reicht in Python um eine Liste auszugeben. Für Java gilt ebenfalls, dass \texttt{System.out.prinln(gegenstaende)} jedes Element der Liste schreibt. Ein Array muss per Schleife ausgegeben werden. \cite{Python3:Buch}\cite{Louis:2010}
+Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus den Schlüsselwort \textit{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus den Schlüsselwort \textit{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \textit{while} und \textit{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \textit{len()} und \textit{range()} helfen dabei. Die Länge eines iterierbaren Datentyp wird von \textit{len()} wiedergegeben \cite{w3school_len}. \textit{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben. Der Code \code{print(gegenstaende)} reicht in Python um eine Liste auszugeben. Für Java gilt ebenfalls, dass \texttt{System.out.println(gegenstaende)} jedes Element der Liste schreibt. Ein Array muss per Schleife ausgegeben werden. \cite{Louis:2010}\cite{Python3:Buch}
 \par
 % ------------------- Laufzeit und Ressourcennutzung --------------------
 \section{Laufzeit und Ressourcennutzung}
