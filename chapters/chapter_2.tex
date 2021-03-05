@@ -3,9 +3,9 @@
 
 % ----------------------- Einleitung ----------------------
 \chapter{Syntaktischer Vergleich zwischen Java und Python}
-Java ist eine objektorientierte, \textit{typensichere}, kompilierte Programmiersprache. 
+Java ist eine objektorientierte, typensichere, kompilierte Programmiersprache. 
 Java wird auf einer \textit{Java Virtual Maschine} (JVM) ausgeführt. 
-Diese JVM gibt es für nahe zu jedes System. 
+Diese JVM gibt es für nahezu jedes System. 
 Java wurde von den Programmiersprachen C und C++ inspiriert, weshalb die Syntax von Java und C/C++ einander ähnlich sind. 
 Java erschien 1995 und wird jeher für viele unterschiedliche Dinge genutzt. 
 Auf der Internetseite von Oracle, den Entwicklern von Java, wird geschrieben: „Mit Java können Sie Online-Spiele spielen, mit Menschen auf der ganzen Welt chatten, Ihre Hypothekenzinsen berechnen und Bilder in 3D betrachten, um nur einige Beispiele zu nennen“ \cite{Oracle:Java}. 
@@ -18,12 +18,12 @@ Ursprünglich war Python als Skriptsprache für Amoeba, einem verteilten Betrieb
 Der Name der Programmiersprache ist von der britischen Komikergruppe \textit{Monty Python} inspiriert. 
 Python ist, wie Java, ebenfalls eine objektorientierte, plattformunabhängige High-Level Programmiersprache. 
 Python wird nicht kompiliert, sondern wird interpretiert, was ein großer Unterschied gegenüber Java ist. 
-Weiter noch ist Python nicht \textit{typensicher}. 
+Weiter noch ist Python nicht typensicher. 
 Wie ABC soll Python einfach zu verstehen und zu lesen sein. 
 Bei Python wurde stark darauf geachtet, dass die Programmiersprache mächtig ist, was bei ABC nicht der Fall war und oft kritisiert wurde. 
 Mächtig ist Python dadurch, dass mit kleinen und übersichtlichen Programmen komplexe Aufgaben gelöst werden können. 
 Python kann für die Web- und App-Entwicklung genutzt werden. 
-Durch eine Vielzahl an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, Maschine Learning und Deep Learning besonders beliebt \cite{PythonCS}. 
+Durch eine Vielzahl an Bibliotheken ist die Programmierung in Python bei neuen Themen wie künstlicher Intelligenz, \textit{Maschine Learning} und \textit{Deep Learning} besonders beliebt \cite{PythonCS}. 
 Das liegt auch daran, dass Python Bibliotheken so einfach wie möglich bereitstellt. 
 Die Standartbibliothek ist sehr umfangreich. 
 Beispielsweise ist das Summieren eines jeden Elements in einem Array in Python durch eine Methode in der Standardbibliothek bereits implementiert, während bei Java auf komplexere Wege zurückgegriffen werden muss. \cite{Python3:Buch}
@@ -37,8 +37,7 @@ Die für Python genutzte IDE \textit{pyCharm}, welche die fünft meistgenutzte I
 Es werden von oben nach unten die Anweisungen in der Datei ausgeführt.
 Klassen werden beim Durchlaufen ignoriert.
 Methoden werden beim Durchlaufen definiert und erst danach stehen sie zur Verfügung.
-Das bedeutet, eine Methode kann nicht aufgerufen werden, bevor 
-Das ist ein typisches Verhalten für Programmiersprachen
+Das ist ein typisches Verhalten für Skriptsprachen.
 Dadurch wird keine Klasse gebraucht und kleine Programme können schnell programmiert werden. 
 Eine Klasse ist ein Entwurf mit Eigenschaften und Funktionen \cite{gfg}. 
 In Java ist eine Klasse zum Ausführen des Programms essenziell und deswegen werden als erstes die Unterschiede von Klassen gegenübergestellt.
@@ -67,13 +66,13 @@ class Tisch:
 \end{minipage}
 
 % Gegenüberstellung der beiden Klassen ->
-Listing \ref{lst:java:class} und Listing \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer \textit{public}. In den beiden Klasse ist ein Konstruktor enthalten. Dieser wird in Java und Python unter den gleichen Bedingungen ausgeführt. Der Konstruktor besteht jeweils aus einem Kopf und einem Rumpf. Der Kopf in Java besteht aus dem Zugriffsmodifizierer \textit{public} oder \textit{private}, dem Namen der Klasse und Parameter. In Python gibt es keine Zugriffsmodifizierer. Dazu kommt noch, dass der Konstruktor aus den Schlüsselbegriffe \textit{def}. Der Name für den Konstruktor ist ebenfalls fest vorgegeben \textit{\_\_init\_\_}, sowie dem Parameter \textit{self}, welcher im Teil \ref{wsuwmv} \textbf{Werte speichern und wiederverwenden mit Variablen} erläutert wird. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Die einzelnen Anweisungen enden in Java mit einem Semikolon, in Python ist ein Zeilenumbruch verpflichtend. Besonders durch die fehlenden geschweiften Klammern, sondern dem Definieren der Rümpfe durch das Einrücken des Codes ist Python um vier Zeilen kürzer. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. 
+Listing \ref{lst:java:class} und Listing \ref{lst:python:class} schreiben, sobald sie initialisiert werden, „Tisch“ in die Konsole. Bei dieser direkten Gegenüberstellung der beiden Klassen fallen einige Unterschiede in der Syntax auf. Eine Klasse in Python wird nicht als \textit{public} oder \textit{private} definiert, sondern ist immer \textit{public}. In den beiden Klassen ist ein Konstruktor enthalten. Dieser wird in Java und Python unter den gleichen Bedingungen ausgeführt. Der Konstruktor besteht jeweils aus einem Kopf und einem Rumpf. Der Kopf in Java besteht aus dem Zugriffsmodifizierer \textit{public} oder \textit{private}, dem Namen der Klasse und Parameter. In Python gibt es keine Zugriffsmodifizierer. Mit \textit{def} wird der Konstruktor eingeleitet. Der Name für den Konstruktor ist mit \textit{\_\_init\_\_} fest vorgegeben. Der Parameter \textit{self}, welcher im Teil \ref{wsuwmv} \textbf{Werte speichern und wiederverwenden mit Variablen} erläutert wird, ist ebenfalls fester Bestandteil des Konstruktors. Der Code im Konstruktor wird beim Initialisieren der Klasse ausgeführt. Die einzelnen Anweisungen enden in Java mit einem Semikolon, in Python ist ein Zeilenumbruch verpflichtend. Da der Rumpf eines Konstruktors per Einrücken definiert wird, ist der Python Code um vier Zeilen kürzer. Java braucht für den Code 60 Zeichen, während in Python nur 44 gebraucht werden. 
 \par
 
 % --------------------- Werte speichern und wiederverwenden mit Variablen ----------------------------
 % Grundfunktion von Variablen
 \section{Werte speichern und wiederverwenden mit Variablen}\label{wsuwmv}
-Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Dicke des Tisches und Anzahl der Beine. Ein Attribut ist eine für die ganze Klasse gültige Variable. Eine Variable gilt sonst nur lokal, also in der Methode oder Schleife, in welcher die Variable deklariert wurde. Durch eine Variable lässt sich auf einen Wert zugreifen. Der Wert wird in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Dabei kann sich die Art und Weise unterscheiden wie auf den Wert zugegriffen wird. Eine Variable hält entweder einen Wert oder eine Referenz auf den Wert. Java hat acht primitive Datentypen: \texttt{int, double, char, boolean, byte, short, long} und \texttt{float} müssen immer einen Wert haben. \texttt{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Java ist typensicher, das bedeutet, dass ein Speicher mit einer Ganzzahl nichts anderes als eine Ganzzahl beinhalten darf. Python ist nicht typensicher, eine Variable kann jede Art von Wert speichern. Variablen werden nach bestimmten Richtlinien benannt, was ein leichteres Lesen des Codes ermöglichen. Laut dieser \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Die \textit{naming convention} von Python besagt, dass Variablen nach \textit{snake\_case} benannt werden \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
+Ein Tisch hat verschiedene Attribute. Darunter fallen Länge, Breite, Höhe, Dicke des Tisches und Anzahl der Beine. Ein Attribut ist eine für die ganze Klasse gültige Variable. Eine Variable gilt sonst nur lokal, also in der Methode oder Schleife, in welcher die Variable deklariert wurde. Durch eine Variable lässt sich auf einen Wert zugreifen. Der Wert wird in der \textit{Random-Access Memory} (RAM) gespeichert \cite{Louis:2010}. Dabei kann sich die Art und Weise unterscheiden wie auf den Wert zugegriffen wird. Eine Variable hält entweder einen Wert oder eine Referenz auf den Wert. Java hat acht primitive Datentypen: \texttt{int, double, char, boolean, byte, short, long} und \texttt{float} müssen immer einen Wert haben. \texttt{String} hingegen greift über eine Referenz auf den Wert zu und kann deswegen auch \textit{Null} sein. Java ist typensicher, das bedeutet, dass ein Speicher mit einer Ganzzahl nichts anderes als eine Ganzzahl beinhalten darf. Python ist nicht typensicher, eine Variable kann jede Art von Wert speichern. Variablen werden nach bestimmten Richtlinien benannt, was ein leichteres Lesen des Codes ermöglicht. Laut dieser \textit{naming conventions} werden Variablen in Java nach \textit{lowerCamelCase} benannt \cite{Microsoft:CapCon}. Die \textit{naming convention} von Python besagt, dass Variablen nach \textit{snake\_case} benannt werden \cite{Ims:h-s}. \cite{JavaNC}\cite{PythonStyle}\cite{JVMS}
 
 % Code Demonstration von Attributen
 \begin{minipage}{.5\linewidth}
@@ -110,9 +109,9 @@ class Tisch:
 \end{minipage}
 
 % Unterschiede der Syntax und Semantik
-Durch die Gegenüberstellung beider Versionen mit Attributen fallen einige Dinge auf. Die Attribute werden im Konstruktor deklariert und initialisiert. Das \texttt{self} macht die Variablen zu Attributen. Ohne das \texttt{self} sind es nur Variablen und damit nur im Konstruktor nutzbar. Ergänzend dazu gibt es noch temporäre Variablen. Diese speichern einen Wert nur für einen kurzen Zeitraum und sind meist unwichtig für den weiteren Verlauf des Programms. Ein beispielhafter Anwendungszweck ist der Dreickstausch, mit dem die Werte in den Variablen getauscht werden. \texttt{this} ist der Schlüsselbegriff für \texttt{self} in Java. Vorteilhafterweise wird \texttt{this} in Java automatisch ergänzt und muss deswegen nicht angegeben werden. Dafür muss ein Attribut in die Klasse geschrieben werden. 
+Durch die Gegenüberstellung beider Versionen mit Attributen fallen einige Dinge auf. Die Attribute werden im Konstruktor deklariert und initialisiert. Das \texttt{self} macht die Variablen zu Attributen. Ohne das \texttt{self} sind es nur Variablen und damit nur im Konstruktor nutzbar. Ergänzend dazu gibt es noch temporäre Variablen. Diese speichern einen Wert nur für einen kurzen Zeitraum und sind meist unwichtig für den weiteren Verlauf des Programms. Ein beispielhafter Anwendungszweck ist der Dreieckstausch, mit dem die Werte in den Variablen getauscht werden. \texttt{this} ist der Schlüsselbegriff für \texttt{self} in Java. Vorteilhafterweise wird \texttt{this} in Java automatisch ergänzt und muss deswegen nicht angegeben werden. Dafür muss ein Attribut in die Klasse geschrieben werden. 
 \par
-Durch das Fehlen eines Datentyp werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Durch das Fehlen von Datentypen laufen einem schneller Fehler unter und es muss möglicherweise im Code mehr \textit{exception handling} betrieben werden.
+Durch das Fehlen eines Datentyp werden in Python weniger Zeichen für die Initialisierung und Deklarierung von Variablen gebraucht. Durch das Fehlen von Datentypen ist der Code anfälliger für Fehler und es muss möglicherweise mehr \textit{exception handling} betrieben werden.
 \par
 Ein Sonderfall ist das Array oder auch die Liste. Während Java Arrays und Listen besitzt, kennt Python nur die Liste. Ein Array ist eine Sammlung von Speichern für Werte mit einer konstanten Länge. Eine Liste ist eine Sammlung mit flexibler Länge, es können also Werte entfernt werden und hinzugefügt werden. Bei einem Array kann mit einem Index auf den Speicher zugegriffen werden. Eine Liste ist eine Verkettung von Werten und es kann immer nur auf das nächste Element zugegriffen werden. Wenn man auf das fünfte Element des Arrays zugreifen möchte geht das per genullten Index. Bei einer Liste in Java wird mit dem ersten Element angefangen und es wird bis zum fünften Element auf den Nachbarn zugegriffen. Deshalb kann auch immer nur mit dem jetzigen Element in einer Liste gearbeitet werden. Python lässt auf die Elemente einer Liste auch per Index zugreifen. \cite{Louis:2010}\cite{Python3:Buch}
 
@@ -135,7 +134,7 @@ public class Tisch
 }
 \end{lstlisting}
 
-In Java wird auf die einzelnen Speicher per Index zugegriffen, wie Listing \ref{lst:java:array} zeigt. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklaration ändern lässt. Alle drei Elemente sind auf dem Tisch und das lässt sich nicht mehr ändern.
+In Java wird auf die einzelnen Speicher per Index zugegriffen, wie Listing \ref{lst:java:array} zeigt. Der Array hat eine konstante Länge, welche sich nicht mehr nach der Deklaration ändern lässt.
 \newpage
 \begin{lstlisting}[language=java,caption={Liste in Java},captionpos=b,label={lst:java:liste},frame=none,escapechar=|]
 import java.util.ArrayList; |\label{lij;l1}|
@@ -161,7 +160,7 @@ public class Tisch
 }
 \end{lstlisting}
 
-Die Liste ermöglicht ein Hinzufügen von Elementen per \texttt{add()} und ein Löschen per \texttt{remove()}. Ein Element kann entweder per nullbasierten Index oder per Wert entfernt werden. Werte werden mit \texttt{set()} überschrieben. Übergabeparameter sind nullbasierter Index und der neue Wert. Damit die \textit{ArrayList} genutzt werden kann, muss die Bibliothek am Anfang des Dokuments importiert werden. Ein Import besteht immer aus zwei Komponenten, dem Schlüsselbegriff \texttt{import}  und der Bibliothek (vlg. \ref{lst:java:liste} in Zeile \ref{lij;l1}). Einer Liste des \textit{String} Datentypen kann kein anderer Datentyp angefügt werden. Das bedeutet, dass \texttt{gegenstaende.add(1);} einen Fehler erzeugt.
+Die Liste ermöglicht ein Hinzufügen von Elementen per \texttt{add()} und ein Löschen per \texttt{remove()}. Ein Element kann entweder per nullbasierten Index oder per Wert entfernt werden. Werte werden mit \texttt{set()} überschrieben. Übergabeparameter sind ein nullbasierter Index und der neue Wert. Damit die \textit{ArrayList} genutzt werden kann, muss die Bibliothek am Anfang des Dokuments importiert werden. Ein Import besteht immer aus zwei Komponenten, dem Schlüsselbegriff \texttt{import}  und der Bibliothek (vlg. Listing \ref{lst:java:liste} in Zeile \ref{lij;l1}). Einer Liste des \textit{String} Datentypen kann kein anderer Datentyp angefügt werden. Das bedeutet, dass \texttt{gegenstaende.add(1);} einen Fehler erzeugt.
 
 \begin{lstlisting}[language=python,caption={Liste in Python},captionpos=b,label={lst:python:liste},frame=none]
 class Tisch:
@@ -177,7 +176,7 @@ class Tisch:
     self.gegenstaende.pop(1)
 \end{lstlisting}
 
-Python erlaubt es mit dem \texttt{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \texttt{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \texttt{remove()}. \texttt{remove()} arbeitet mit einem Wert, welcher gelöscht werden soll, anstelle eines Indexes. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Dass Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
+Python erlaubt es mit dem \texttt{add()} Befehl neue Elemente der Liste hinzuzufügen. Löschen funktioniert genauso gut. Entweder per \texttt{pop()}, wo in den Parameterklammern ein Basis Null Index mitgegeben wird oder mit der Funktion \texttt{remove()}. \texttt{remove()} arbeitet mit einem Wert, welcher gelöscht werden soll, anstelle eines Index. Von einer Liste mit zweimal dem gleichen Wert wird das erste Element gelöscht. Dass Python in der Lage ist per Index auf die Elemente zuzugreifen erleichtert das Schreiben des Codes.\par
 Das Erstellen einer Liste auf diese Art und Weise kann je nach Situation umständlich sein. Ein Weg \texttt{add()} zu umgehen wird in Listing \ref{lst:java:ezarray} und Listing \ref{lst:python:ezarray} gezeigt.
 
 \begin{minipage}{.5\linewidth}
@@ -198,9 +197,9 @@ gegenstaende = [
 \end{lstlisting}
 \end{minipage}
 
-Python macht das erstellen einer Liste besonders einfach. Java bietet die vereinfachte Deklaration nur für Arrays. Ein erstellte Array lässt sich in eine \textit{ArrayList} umwandeln (vgl. Listing \ref{lst:java:ezarray}). Damit lässt sich auf eine ähnliche Weise eine Liste erstellen, aber die Laufzeit wird davon länger.
+Python macht das Erstellen einer Liste besonders einfach. Java bietet die vereinfachte Deklaration nur für Arrays. Ein erstelltes Array lässt sich in eine \textit{ArrayList} umwandeln (vgl. Listing \ref{lst:java:ezarray}). Damit lässt sich auf eine ähnliche Weise eine Liste erstellen, aber die Laufzeit wird davon länger.
 
-Ein weiteres Feature nur für Python ist \textit{slicing}. Damit kann man anstelle eines Indexes auch einen Bereich angeben. ['Stift', 'Pflanze'] ist die Liste welche von \code{gegenstaende[1:2]} wiedergegeben wird. Das macht Python noch kürzer und übersichtlicher. Auch kann ein negativer Index kann angegeben werden. Der Index \texttt{[-1]} ist das letzte Element einer Liste.\par
+Ein weiteres Feature nur für Python ist \textit{slicing}. Damit kann anstelle eines Index auch einen Bereich angeben. ['Stift', 'Pflanze'] ist die Liste welche von \code{gegenstaende[1:2]} wiedergegeben wird. Das macht Python noch kürzer und übersichtlicher. Auch kann ein negativer Index angegeben werden. Der Index \texttt{[-1]} ist das letzte Element einer Liste.\par
 
 % ------------------ Wiederverwenden von Code mithilfe von Methoden ---------------------------
 \section{Wiederverwenden von Code mithilfe von Methoden}
@@ -223,7 +222,7 @@ def verstelle_tisch(wert):
 \end{lstlisting}
 \end{minipage}
 
-Methoden in Python haben keinen Zugriffstypen, genauso wie bei Variablen sind Methoden immer \texttt{public}. Der Methodenkopf besteht nur aus dem Schlüsselbegriff \textit{def}, dem Namen und Parametern, welche von Klammern umrahmt werden. Der Rumpf der Methode wird anders als in Java nur durch das Einrücken des Codes und dem Doppelpunkt am Ende des Methodenkopfes definiert. Wird der Code nicht eingerückt geschrieben wird er nicht der Methode zugeordnet. Parameter funktionieren in Java und Python gleich. Werden in Python aber nicht mit einem Datentyp angegeben. Einen Wert von einer Methode zurück zu geben ist ebenfalls möglich. Der Rückgabewert kann bei Python vom Datentyp variieren, da die Methode nicht auf einen Datentyp festgelegt ist. Java lässt unterschiedliche Rückgabewerte in der gleichen Methode nicht zu. Laut der \textit{naming convention} werden Methoden nach den gleichen Prinzipen wie Variablen genannt \cite{Microsoft:CapCon}\cite{Ims:h-s}. \cite{Louis:2010}\cite{Python3:Buch}
+Methoden in Python haben keinen Zugriffstypen, genauso wie bei Variablen sind Methoden immer \texttt{public}. Der Methodenkopf besteht nur aus dem Schlüsselbegriff \texttt{def}, dem Namen und Parametern, welche von Klammern umrahmt werden. Der Rumpf der Methode wird anders als in Java nur durch das Einrücken des Codes und dem Doppelpunkt am Ende des Methodenkopfes definiert. Wird der Code nicht eingerückt geschrieben wird er nicht der Methode zugeordnet. Parameter funktionieren in Java und Python gleich, werden in Python aber nicht mit einem Datentyp angegeben. Einen Wert von einer Methode zurückzugeben ist ebenfalls möglich. Der Rückgabewert kann bei Python vom Datentyp variieren, da die Methode nicht auf einen Datentyp festgelegt ist. Java lässt unterschiedliche Rückgabewerte in der gleichen Methode nicht zu. Laut der \textit{naming convention} werden Methoden nach den gleichen Prinzipen wie Variablen genannt \cite{Microsoft:CapCon}\cite{Ims:h-s}. \cite{Louis:2010}\cite{Python3:Buch}
 \par
 % Standardparameter ->
 Methoden können in Python nicht überladen werden. Dafür gibt es Standardparameter, was ein Überladen von Methoden überflüssig macht. Im Methodenkopf wird dem Parameter ein Wert zugewiesen.
@@ -233,9 +232,9 @@ def methode(parameter = 'standardparameter'):
     print(parameter)
 \end{lstlisting}
 
-Beim Aufrufen der in Listing \ref{lst:python:sparameter} dargestellten Methode ist ein Parameter optional. Der Wert von \textit{parameter} ist “standardparameter“ sofern kein Wert für den Parameter angegeben wird.\par
+Beim Aufrufen der in Listing \ref{lst:python:sparameter} dargestellten Methode ist ein Parameter optional. Der Wert von \texttt{parameter} ist “standardparameter“ sofern kein Wert für den Parameter angegeben wird.\par
 \section{Überprüfen von Werten durch If-Abfragen}
-Mit der jetzigen Methode \textit{verstelleTisch} kann die Höhe beliebt sein. Das kann mit einer If-Abfrage verhindert werden. If-Abfragen sind in der Lage zwischen verschieden Fällen zu unterscheiden. In diesem spezifischen Beispiel gibt es zwei Fälle. Entweder ist die Höhe nicht gültig, da sie nicht im vorhergesehenen Toleranzbereich liegt oder sie bleibt innerhalb des Bereichs. Die If-Abfrage wird in Java und Python gleich strukturiert, die Syntax unterscheidet sich jedoch. \cite{Louis:2010}\cite{Python3:Buch}
+Mit der jetzigen Methode \texttt{verstelleTisch} kann die Höhe beliebig sein. Das kann mit einer If-Abfrage verhindert werden. If-Abfragen sind in der Lage zwischen verschieden Fällen zu unterscheiden. In diesem spezifischen Beispiel gibt es zwei Fälle. Entweder ist die Höhe nicht gültig, da sie nicht im vorhergesehenen Toleranzbereich liegt oder sie bleibt innerhalb des Bereiches. Die If-Abfrage wird in Java und Python gleich strukturiert, die Syntax unterscheidet sich jedoch. \cite{Louis:2010}\cite{Python3:Buch}
 
 \begin{minipage}{.5\linewidth}
 \begin{lstlisting}[language=java,caption={If-Abfrage in Java},captionpos=b,label={lst:java:if},frame=none]
@@ -255,7 +254,7 @@ if hoehe + wert < maxHoehe and hoehe + wert > minHoehe:
 \end{minipage}
 
 Listing \ref{lst:python:if} zeigt, dass der Doppelpunkt am Ende des Kopfes, sowie das Einrücken den Rumpf definieren.
-Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essenziellen Operatoren. \texttt{\&\&} und \texttt{||} werden in Python zu \texttt{and} und \texttt{or}. Die Funktionsweise bleibt gleich. Ebenfalls wichtig ist, dass das \texttt{!} zu einem \texttt{not} wird. Mit \texttt{not} lassen sich genauso wie in Java \textit{boolean}-Werte umdrehen. \texttt{Is} wird genutzt, um eine Identitätsvergleich durchzuführen. In Java wird \texttt{is} als \textit{==} dargestellt. Die beiden Gleichheitszeichen werden genutzt um Werte zu vergleichen und entspricht \texttt{equals()} in Java. Kombiniert mit \texttt{not}, gibt \texttt{is not} den Wert gedreht zurück. Durch die Operatoren wird deutlich das Python viel Wert auf die Lesbarkeit legt.
+Trotz der Ähnlichen Operatoren unterscheiden sich Python und Java bei den essenziellen Operatoren. \texttt{\&\&} und \texttt{||} werden in Python zu \texttt{and} und \texttt{or}. Die Funktionsweise bleibt gleich. Ebenfalls wichtig ist, dass das \texttt{!} zu einem \texttt{not} wird. Mit \texttt{not} lassen sich genauso wie in Java \textit{boolean}-Werte umdrehen. \texttt{is} wird genutzt, um einen Identitätsvergleich durchzuführen. In Java wird \texttt{is} als \textit{==} dargestellt. In Python werden die beiden Gleichheitszeichen genutzt um Werte zu vergleichen und entspricht \texttt{equals()} in Java. Kombiniert mit \texttt{not}, gibt \texttt{is not} den Wert gedreht zurück. Durch die Operatoren wird deutlich das Python viel Wert auf die Lesbarkeit legt.
 Die dazugehörigen \texttt{else if} und \texttt{else} Zweige gibt es in Python ebenfalls. Lediglich wird \texttt{else if} zu \texttt{elif}.  Die Längen der If-Abfragen unterscheiden sich nur minimal. \cite{Louis:2010}\cite{Python3:Buch}\par
 
 % ----------------- Durch Schleifen Prozesse wiederholen ------------------
@@ -310,7 +309,7 @@ public void schreibeGegenstaende()
 \end{minipage}
 \begin{minipage}{.5\linewidth}
 \begin{lstlisting}[language=python,caption={for-Schleife Python},captionpos=b,label={lst:python:for},frame=l,escapechar=|]
-
+gibt es nicht
 
 
         
@@ -343,8 +342,8 @@ public void schreibe_gegenstaende():
 \end{lstlisting}
 \end{minipage}
 
-Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus den Schlüsselwort \textit{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus den Schlüsselwort \textit{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \textit{while} und \textit{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \textit{len()} und \textit{range()} helfen dabei. Die Länge eines iterierbaren Datentyp wird von \textit{len()} wiedergegeben \cite{w3school_len}. \textit{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben. Der Code \code{print(gegenstaende)} reicht in Python um eine Liste auszugeben. Für Java gilt ebenfalls, dass \texttt{System.out.println(gegenstaende)} jedes Element der Liste schreibt. Ein Array muss per Schleife ausgegeben werden. \cite{Louis:2010}\cite{Python3:Buch}
+Eine Schleife besteht aus einem Schleifenkopf und einem Schleifenrumpf. Der Schleifenkopf der \textit{while}-Schleife besteht in Python aus dem Schlüsselwort \texttt{while}, sowie Bedingung und Doppelpunkt. Davon unterscheidet sich die \textit{for}-Schleife nur minimal. Sie besteht aus dem Schlüsselwort \texttt{for}, sowie Bedingung und Doppelpunkt (vgl. Listing \ref{lst:python:foreach}). Java und Python benutzten \texttt{while} und \texttt{for} auf die gleiche Weise. Der Grundgedanke einer \textit{for}-Schleife in Python unterscheidet sich von dem der Schleife in Java. Während die \textit{for}-Schleife in Java so lange durchläuft, bis die Bedingung eintrifft, geht die \textit{for}-Schleife in Python jedes Element durch. Das funktioniert nur bei iterierbaren Datentypen. Wenn eine Schleife n-mal durchlaufen soll, muss das auf andere Weise geschehen. \texttt{len()} und \texttt{range()} helfen dabei. Die Länge eines iterierbaren Datentyp wird von \texttt{len()} wiedergegeben \cite{w3school_len}. \texttt{range()} gibt einen Array von 0 bis Parameter – 1 wieder \cite{w3school_range}. Dadurch wird ein nicht iterierbarer Wert wie \textit{7} in eine Liste[0,1,2,3,4,5,6] umgewandelt, welche von der \textit{for}-Schleife durchlaufen wird. Die Syntax unterscheidet sich nicht von der If-Abfrage. Python ist in der Lage auch ohne eine Schleife eine Liste in die Konsole auszugeben. Der Code \code{print(gegenstaende)} reicht in Python um eine Liste auszugeben. Für Java gilt ebenfalls, dass \texttt{System.out.println(gegenstaende)} jedes Element der Liste schreibt. Ein Array muss per Schleife ausgegeben werden. \cite{Louis:2010}\cite{Python3:Buch}
 \par
 % ------------------- Laufzeit und Ressourcennutzung --------------------
 \section{Laufzeit und Ressourcennutzung}
-Ein \textit{Quicksort} ist in Java deutlich schneller. 10.000.000 Elemente werden in Java zweimal schneller sortiert als 1.000.000 Elemente in Python sortiert werden. 2,5 Sekunden werden von Java gebraucht um 10.000.000 Elemente zu sortieren. Python braucht für die gleiche Anzahl 65 Sekunden. Der gebraucht RAM von Python für 1.000.000 Elemente ist 44 Megabytes (MB) und für 10.000.000 Elemente sind es 420 MB RAM Auslastung. Java schneidet im Vergleich zu Python beim der RAM Nutzung schlecht ab. Das Sortieren von 1.000.000 Elementen nimmt 160 MB in Anspruch. Die 10.000.000 Elemente brauchen beim sortieren 2000 MB. (vgl. \ref{quicksort:python} und \ref{quicksort:java})
+Ein \textit{Quicksort} ist in Java deutlich schneller. 10.000.000 Elemente werden in Java zweimal schneller sortiert als 1.000.000 Elemente in Python sortiert werden. 2,5 Sekunden werden von Java gebraucht um 10.000.000 Elemente zu sortieren. Python braucht für die gleiche Anzahl 65 Sekunden. Der gebraucht RAM von Python für 1.000.000 Elemente ist 44 \textit{Megabytes} (MB) und für 10.000.000 Elemente sind es 420 MB RAM Auslastung. Java schneidet im Vergleich zu Python bei der RAM Nutzung schlecht ab. Das Sortieren von 1.000.000 Elementen nimmt 160 MB in Anspruch. Die 10.000.000 Elemente brauchen beim sortieren 2000 MB. (vgl. Anlage \ref{quicksort:python} und \ref{quicksort:java})
